@@ -5,16 +5,16 @@ import { customElement, property } from "lit/decorators.js";
 @customElement("display-flex")
 export class DisplayFlex extends LitElement {
 
-    @property({ type: String, attribute: "flex-direction" })
+    @property({ type: String, attribute: "flex-direction", reflect: true })
     direction: "row" | "column" | "row-reverse" | "column-reverse" = "row";
 
-    @property({ type: String, attribute: "justify-contents" })
+    @property({ type: String, attribute: "justify-contents", reflect: true })
     justify: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly" = "center";
 
-    @property({ type: String, attribute: "align-items" })
+    @property({ type: String, attribute: "align-items", reflect: true })
     align: "flex-start" | "flex-end" | "center" | "stretch" | "baseline" = "center";
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     gap = "0.5em";
 
     updated(changedProperties: Map<string, any>) {
