@@ -6,26 +6,26 @@ import { customElement, property } from "lit/decorators.js";
 export class DisplayFlex extends LitElement {
 
     @property({ type: String, attribute: "flex-direction", reflect: true })
-    direction: "row" | "column" | "row-reverse" | "column-reverse" = "row";
+    flexDirection: "row" | "column" | "row-reverse" | "column-reverse" = "row";
 
     @property({ type: String, attribute: "justify-contents", reflect: true })
-    justify: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly" = "center";
+    justifyContents: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly" = "center";
 
     @property({ type: String, attribute: "align-items", reflect: true })
-    align: "flex-start" | "flex-end" | "center" | "stretch" | "baseline" = "center";
+    alignItems: "flex-start" | "flex-end" | "center" | "stretch" | "baseline" = "center";
 
     @property({ type: String, reflect: true })
     gap = "0.5em";
 
     updated(changedProperties: Map<string, any>) {
-        if (changedProperties.has("direction")) {
-            this.style.flexDirection = this.direction;
+        if (changedProperties.has("flexDirection")) {
+            this.style.flexDirection = this.flexDirection;
         }
-        if (changedProperties.has("justify")) {
-            this.style.justifyContent = this.justify;
+        if (changedProperties.has("justifyContents")) {
+            this.style.justifyContent = this.justifyContents;
         }
-        if (changedProperties.has("align")) {
-            this.style.alignItems = this.align;
+        if (changedProperties.has("alignItems")) {
+            this.style.alignItems = this.alignItems;
         }
         if (changedProperties.has("gap")) {
             this.style.gap = this.gap;
