@@ -31,7 +31,15 @@ export class BitCell extends LitElement {
             color: var(--color-text);
             background-color: var(--color-background);
             border: 2px solid var(--color-text);
-            border-radius: 0.25em;
+            border-radius: 4px;
+            user-select: none;
+
+            /** Styles for the bit when its value is 1 */
+            &[data-value="1"] {
+                background-color: var(--color-text);
+                color: var(--color-background);
+                border-color: var(--color-text);
+            }
         }
         
         .interactive {
