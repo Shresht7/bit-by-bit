@@ -35,6 +35,10 @@ export class DisplayFlex extends LitElement {
     static styles = css /* css */ `
         :host {
             display: flex;
+            flex-direction: var(--flex-direction, row);
+            justify-content: var(--justify-contents, center);
+            align-items: var(--align-items, center)
+            gap: var(--gap, 0.5em);
         }
     `;
 
