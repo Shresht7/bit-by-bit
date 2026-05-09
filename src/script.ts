@@ -1,1 +1,2 @@
-console.log("This is Lit! 🔥");
+// Components
+import "./components/bit-cell.ts";
