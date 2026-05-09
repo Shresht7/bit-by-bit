@@ -1,6 +1,7 @@
 // Library
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
 
 @customElement("bit-cell")
 export class BitCell extends LitElement {
@@ -30,14 +31,27 @@ export class BitCell extends LitElement {
             color: var(--color-text);
             background-color: var(--color-background);
             border: 2px solid var(--color-text);
-            border-radius: 0.25em;            
+            border-radius: 0.25em;
+        }
+        
+        .interactive {
+            cursor: pointer;
         }
     `;
 
     /** Renders the bit cell with its value. */
     render() {
+        const classes = {
+            bit: true,
+            interactive: this.interactive,
+        };
+
         return html /* html */ `
-        <span class="bit" data-value="${this.value}" @click=${this.flip}>
+        <span
+            class="${classMap(classes)}"
+            data-value="${this.value}"
+            @click=${this.flip}
+        >
             ${this.value}
         </span>
         `;
