@@ -1,5 +1,5 @@
 // Library
-import { LitElement, html } from "lit";
+import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 @customElement("display-flex")
@@ -31,6 +31,12 @@ export class DisplayFlex extends LitElement {
             this.style.gap = this.gap;
         }
     }
+
+    static styles = css /* css */ `
+        :host {
+            display: flex;
+        }
+    `;
 
     render() {
         return html /* html */ `
