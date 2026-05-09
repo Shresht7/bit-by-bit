@@ -9,6 +9,7 @@ export class BitCell extends LitElement {
     static styles = css /* css */ `
        .bit {
             padding: 0.25em 0.5em;
+            font-family: var(--font-family-bits);
             font-size: 1.25rem;
             font-weight: bold;
             color: var(--color-text);
