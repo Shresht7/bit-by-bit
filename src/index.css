@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
 :root {
   --color-white: #FAFAFA;
   --color-black: #333333;
@@ -5,6 +7,9 @@
   color-scheme: light dark;
   --color-text: var(--color-black);
   --color-background: var(--color-white);
+
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-bits: 'Kode Mono', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,11 +29,35 @@
 
 html,
 body {
-  min-width: 320px;
-  min-height: 100svh;
+  min-height: 100dvh;
+  width: clamp(320px, 100%, 768px);
+  margin: 0 auto;
+
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background-color: var(--color-background);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+section.topic {
+  margin-block: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+section.showcase {
+  margin-block: 2rem;
+  margin-inline: auto;
+  width: 100%;
 }
