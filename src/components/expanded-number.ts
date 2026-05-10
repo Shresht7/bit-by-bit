@@ -18,6 +18,11 @@ export class ExpandedNumber extends LitElement {
     @property({ type: Number, reflect: true })
     length = 8;
 
+    constructor() {
+        super();
+        this.addEventListener("value-changed", this.updateValue);
+    }
+
     static styles = css /* css */ `
         span {
             font-family: var(--font-family-bits);
@@ -33,7 +38,7 @@ export class ExpandedNumber extends LitElement {
         }
     `;
 
-    updateValue() {
+    updateValue = () => {
         const bitCells = this.renderRoot.querySelectorAll<BitCell>("bit-cell");
         let sum = 0;
         bitCells.forEach((cell, cellIdx) => {
@@ -49,7 +54,7 @@ export class ExpandedNumber extends LitElement {
             <display-flex flex-direction="row" gap="1.5rem">
                 <display-flex flex-direction="row" align-items="center" gap="1rem">
                 ${map(parts, (part, idx) => html /* html */ `
-                    <display-flex flex-direction="column" align-items="center" gap="1rem" @click=${this.updateValue}>
+                    <display-flex flex-direction="column" align-items="center" gap="1rem">
                         <bit-cell value="${part}" base="${this.base}" interactive></bit-cell>
                         <span class=${part === 0 ? "grayed-out" : ""}>${this.base}<sup>${parts.length - idx - 1}</sup></span>
                         <span class=${part === 0 ? "grayed-out" : ""}>${this.base !== 2 ? `${part}×` : ""}${this.base ** (parts.length - idx - 1)}</span>

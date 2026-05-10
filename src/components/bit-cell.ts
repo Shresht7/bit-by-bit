@@ -22,6 +22,11 @@ export class BitCell extends LitElement {
     flip() {
         if (this.interactive) {
             this.value = (this.value + 1) % this.base;
+            this.dispatchEvent(new CustomEvent("value-changed", {
+                detail: { value: this.value },
+                bubbles: true,
+                composed: true,
+            }));
         }
     }
 
