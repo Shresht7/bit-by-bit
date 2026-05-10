@@ -4,6 +4,9 @@ import "./components/bit-cell.ts";
 import "./components/expanded-number.ts";
 import "./components/svg-switch.ts";
 
+// Theme
+import "./theme.ts";
+
 // Type Definitions
 import type { BitCell } from "./components/bit-cell.ts";
 import type { ExpandedNumber } from "./components/expanded-number.ts";
