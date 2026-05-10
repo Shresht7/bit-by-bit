@@ -47,6 +47,26 @@
       </section>
     </section>
 
+    <section id="addition" class="topic">
+      <h2>Addition</h2>
+      <p>Binary addition follows the same principles as decimal addition, but it only involves two digits: 0 and 1.</p>
+      <p>When adding two bits, the possible combinations are:</p>
+      <ul>
+        <li>0 + 0 = 0</li>
+        <li>0 + 1 = 1</li>
+        <li>1 + 0 = 1</li>
+        <li>1 + 1 = 10 (which is 0 with a carry of 1 to the next higher bit)</li>
+      </ul>
+
+      <section class="showcase">
+        <display-flex flex-direction="column" gap="2rem">
+          <expanded-number value="5" base="2" length="4"></expanded-number>
+          <expanded-number value="10" base="2" length="4"></expanded-number>
+          <hr style="width: 100%">
+          <expanded-number value="15" base="2" length="4"></expanded-number>
+        </display-flex>
+      </section>
+
   </main>
 </body>
 
