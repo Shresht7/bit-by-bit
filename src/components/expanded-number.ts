@@ -1,6 +1,6 @@
 // Library
 import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, queryAll } from "lit/decorators.js";
 import { map } from "lit/directives/map.js";
 
 // Type Definitions
@@ -38,11 +38,13 @@ export class ExpandedNumber extends LitElement {
         }
     `;
 
+    @queryAll("bit-cell")
+    private bitCells!: NodeListOf<BitCell>;
+
     updateValue = () => {
-        const bitCells = this.renderRoot.querySelectorAll<BitCell>("bit-cell");
         let sum = 0;
-        bitCells.forEach((cell, cellIdx) => {
-            sum += cell.value * (this.base ** (bitCells.length - cellIdx - 1));
+        this.bitCells.forEach((cell, cellIdx) => {
+            sum += cell.value * (this.base ** (this.bitCells.length - cellIdx - 1));
         });
         this.value = sum;
     }
