@@ -52,7 +52,7 @@ export class ExpandedNumber extends LitElement {
                     <display-flex flex-direction="column" align-items="center" gap="1rem" @click=${this.updateValue}>
                         <bit-cell value="${part}" base="${this.base}" interactive></bit-cell>
                         <span class=${part === 0 ? "grayed-out" : ""}>${this.base}<sup>${parts.length - idx - 1}</sup></span>
-                        <span class=${part === 0 ? "grayed-out" : ""}>${this.base ** (parts.length - idx - 1)}</span>
+                        <span class=${part === 0 ? "grayed-out" : ""}>${this.base !== 2 ? `${part}×` : ""}${this.base ** (parts.length - idx - 1)}</span>
                     </display-flex>
                 `)}
                 </display-flex>
