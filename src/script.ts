@@ -2,13 +2,14 @@
 import "./components/display-flex.ts";
 import "./components/bit-cell.ts";
 import "./components/expanded-number.ts";
+import "./components/svg-switch.ts";
 
 // Type Definitions
 import type { BitCell } from "./components/bit-cell.ts";
 import type { ExpandedNumber } from "./components/expanded-number.ts";
 
 /** The collection of bit cells that are part of a sync group, allowing them to flip together when one is clicked. */
-const syncBits = document.querySelectorAll<BitCell>("section.showcase bit-cell[data-sync-group]");
+const syncBits = document.querySelectorAll<BitCell>("section.showcase bit-cell[data-sync-group], section.showcase svg-switch[data-sync-group]");
 
 // Add click event listeners to each sync bit to flip all bits in the same sync group when one is clicked.
 syncBits.forEach(bit => bit?.addEventListener("click", () => {
