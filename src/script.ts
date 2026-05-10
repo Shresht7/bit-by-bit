@@ -1,6 +1,9 @@
 // Components
 import "./components/display-flex.ts";
 import "./components/bit-cell.ts";
+import "./components/expanded-number.ts";
+
+// Type Definitions
 import type { BitCell } from "./components/bit-cell.ts";
 
 /** The collection of bit cells that are part of a sync group, allowing them to flip together when one is clicked. */

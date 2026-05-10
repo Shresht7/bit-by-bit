@@ -24,10 +24,25 @@
         either 0 or 1.</p>
 
       <section class="showcase">
-        <display-flex direction="row" justify-contents="center" align-items="center" gap="1em">
+        <display-flex flex-direction="row" justify-contents="center" align-items="center" gap="1em">
           <bit-cell value="0" data-sync-group="introduction"></bit-cell>
           <span>or</span>
           <bit-cell value="1" data-sync-group="introduction"></bit-cell>
+        </display-flex>
+      </section>
+    </section>
+
+    <section id="numbers" class="topic">
+      <h2>Numbers</h2>
+      <p>In the binary system, numbers are represented using only two symbols: 0 and 1. Each digit in a binary number is
+        called a <strong>bit</strong>, and the value of each bit is determined by its position in the number.</p>
+      <p>The rightmost bit (least significant bit) has a value of 1, the next bit to the left has a value of 2, then 4,
+        8, and so on, doubling with each position.</p>
+
+      <section class="showcase">
+        <display-flex flex-direction="column" gap="2rem">
+          <expanded-number value="125" base="10" length="3"></expanded-number>
+          <expanded-number value="125"></expanded-number>
         </display-flex>
       </section>
     </section>
