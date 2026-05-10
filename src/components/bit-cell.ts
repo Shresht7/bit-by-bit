@@ -10,14 +10,18 @@ export class BitCell extends LitElement {
     @property({ type: Number, reflect: true })
     value = 0;
 
+    /** The base of the bit cell, which determines the range of values it can take (0 to base - 1). */
+    @property({ type: Number, reflect: true })
+    base = 2;
+
     /** Whether the bit cell is interactive and can be flipped. */
     @property({ type: Boolean, reflect: true })
     interactive = false;
 
-    /** Flips the value of the bit between 0 and 1. */
+    /** Flips the value of the bit between 0 and base - 1. */
     flip() {
         if (this.interactive) {
-            this.value = this.value === 0 ? 1 : 0;
+            this.value = (this.value + 1) % this.base;
         }
     }
 
@@ -35,7 +39,7 @@ export class BitCell extends LitElement {
             user-select: none;
 
             /** Styles for the bit when its value is 1 */
-            &[data-value="1"] {
+            &[data-value="1"][data-base="2"] {
                 background-color: var(--color-text);
                 color: var(--color-background);
                 border-color: var(--color-text);
@@ -58,6 +62,7 @@ export class BitCell extends LitElement {
         <span
             class="${classMap(classes)}"
             data-value="${this.value}"
+            data-base="${this.base}"
             @click=${this.flip}
         >
             ${this.value}
