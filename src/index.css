@@ -3,6 +3,7 @@
 :root {
   --color-white: #FAFAFA;
   --color-black: #333333;
+  --color-subdued: color-mix(in srgb, var(--color-black) 50%, var(--color-white) 50%);
 
   color-scheme: light dark;
   --color-text: var(--color-black);
@@ -143,4 +144,8 @@ aside {
 .cursor-pointer {
   cursor: pointer;
 
+}
+
+.color-subdued {
+  color: var(--color-subdued);
 }

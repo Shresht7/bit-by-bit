@@ -8,8 +8,13 @@ document.querySelectorAll("section.topic").forEach((section, idx) => {
 
         const link = document.createElement("a");
         link.href = `#${sectionId}`;
-        const sectionNumber = (idx + 1).toString(2).padStart(3, "0");
-        link.textContent = `${sectionNumber}. ${sectionTitle}`;
+
+        const span = document.createElement("span");
+        span.textContent = (idx + 1).toString(2).padStart(3, "0") + "::";
+        span.classList.add("color-subdued");
+        link.appendChild(span);
+        const title = document.createTextNode(sectionTitle);
+        link.appendChild(title);
 
         listItem.appendChild(link);
         sidebar.appendChild(listItem);
