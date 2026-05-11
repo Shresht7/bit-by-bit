@@ -55,6 +55,18 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-bits);
+  color: var(--color-text);
+
 }
 
 header {
@@ -85,6 +97,35 @@ section.showcase {
   margin-block: 4rem;
   margin-inline: auto;
   width: 100%;
+}
+
+aside#sidebar {
+  width: 20dvw;
+  grid-row: 2 / -1;
+  grid-column: 1 / 2;
+  padding: 1rem;
+  font-family: var(--font-family-bits);
+
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    li {
+      list-style: none;
+      color: var(--color-text);
+
+      a {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 aside#secondary {
