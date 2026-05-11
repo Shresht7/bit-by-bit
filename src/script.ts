@@ -4,6 +4,9 @@ import "./components/bit-cell.ts";
 import "./components/expanded-number.ts";
 import "./components/svg-switch.ts";
 
+// Modules
+import "./modules/sidebar.ts"
+
 // Theme
 import "./theme.ts";
 
