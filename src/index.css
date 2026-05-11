@@ -44,7 +44,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 body {
@@ -100,17 +100,19 @@ section.showcase {
   width: 100%;
 }
 
-aside#sidebar {
-  height: 85dvh;
+aside {
+  height: 80dvh;
   width: 20dvw;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
   grid-row: 2 / -1;
   grid-column: 1 / 2;
   padding: 1rem;
+  position: sticky;
+  top: 2rem;
+
+}
+
+#sidebar {
+  height: 80vh;
   font-family: var(--font-family-bits);
 
   nav ul {

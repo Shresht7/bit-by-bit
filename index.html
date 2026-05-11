@@ -76,18 +76,21 @@
 
   </main>
 
-  <aside id="sidebar">
-    <nav>
-      <ul>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#numbers">Numbers</a></li>
-        <li><a href="#addition">Addition</a></li>
-      </ul>
-    </nav>
-    <div>
-      Dark-Mode:
-      <bit-cell class="theme-toggle" value="0"></bit-cell>
-    </div>
+  <aside>
+    <display-flex id="sidebar" flex-direction="column" justify-contents="space-between" align-items="flex-end"
+      gap="1rem">
+      <nav>
+        <ul>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#numbers">Numbers</a></li>
+          <li><a href="#addition">Addition</a></li>
+        </ul>
+      </nav>
+      <div>
+        Dark-Mode:
+        <bit-cell class="theme-toggle" value="0"></bit-cell>
+      </div>
+    </display-flex>
   </aside>
 
 </body>
