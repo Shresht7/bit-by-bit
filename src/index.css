@@ -135,3 +135,12 @@ aside {
     }
   }
 }
+
+.user-select-none {
+  user-select: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+
+}

@@ -53,6 +53,11 @@ export class BitCell extends LitElement {
         
         .interactive {
             cursor: pointer;
+
+            &:hover, &:focus {
+                outline: 2px solid var(--color-text);
+                outline-offset: 2px;
+            }
         }
     `;
 
