@@ -137,6 +137,10 @@ aside {
   }
 }
 
+.font-code {
+  font-family: var(--font-family-bits);
+}
+
 .user-select-none {
   user-select: none;
 }

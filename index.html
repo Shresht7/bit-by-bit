@@ -24,16 +24,17 @@
         either 0 or 1.</p>
 
       <section class="showcase">
-        <display-flex flex-direction="column" justify-contents="center" align-items="center" gap="2rem">
+        <display-flex class="user-select-none" flex-direction="column" justify-contents="center" align-items="center"
+          gap="2rem">
           <display-flex flex-direction="row" justify-contents="center" align-items="center" gap="1em">
             <bit-cell value="0" class="cursor-pointer" data-sync-group="introduction"></bit-cell>
-            <span>or</span>
+            <span class="font-code color-subdued">or</span>
             <bit-cell value="1" class="cursor-pointer" data-sync-group="introduction"></bit-cell>
           </display-flex>
 
           <display-flex flex-direction="row" justify-contents="center" align-items="center" gap="1em">
             <svg-switch value="0" class="cursor-pointer" data-sync-group="introduction"></svg-switch>
-            <span>or</span>
+            <span class="font-code color-subdued">or</span>
             <svg-switch value="1" class="cursor-pointer" data-sync-group="introduction"></svg-switch>
           </display-flex>
       </section>
