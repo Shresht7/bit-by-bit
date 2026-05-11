@@ -1,0 +1,44 @@
+/* -------------- */
+/* CSS PROPERTIES */
+/* -------------- */
+
+:root {
+    --color-white: #FAFAFA;
+    --color-black: #333333;
+    --color-subdued: color-mix(in srgb, var(--color-black) 50%, var(--color-white) 50%);
+}
+
+/* ----- */
+/* THEME */
+/* ----- */
+
+:root {
+    color-scheme: light dark;
+    --color-text: var(--color-black);
+    --color-background: var(--color-white);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: var(--color-white);
+        --color-background: var(--color-black);
+    }
+}
+
+body[data-theme='light'] {
+    --color-text: var(--color-black);
+    --color-background: var(--color-white);
+}
+
+body[data-theme='dark'] {
+    --color-text: var(--color-white);
+    --color-background: var(--color-black);
+}
+
+/* --------------- */
+/* UTILITY CLASSES */
+/* --------------- */
+
+.color-subdued {
+    color: var(--color-subdued);
+}

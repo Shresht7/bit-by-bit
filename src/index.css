@@ -1,73 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
-
-:root {
-  --color-white: #FAFAFA;
-  --color-black: #333333;
-  --color-subdued: color-mix(in srgb, var(--color-black) 50%, var(--color-white) 50%);
-
-  color-scheme: light dark;
-  --color-text: var(--color-black);
-  --color-background: var(--color-white);
-
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-family-bits: 'Kode Mono', monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: var(--color-white);
-    --color-background: var(--color-black);
-  }
-}
-
-body[data-theme='light'] {
-  --color-text: var(--color-black);
-  --color-background: var(--color-white);
-}
-
-body[data-theme='dark'] {
-  --color-text: var(--color-white);
-  --color-background: var(--color-black);
-}
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  min-height: 100dvh;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* overflow-x: hidden; */
-}
+@import url("./styles/base.css");
+@import url("./styles/colors.css");
+@import url("./styles/typography.css");
+@import url("./styles/utility.css");
 
 body {
-  font-family: var(--font-family);
-  color: var(--color-text);
-  background-color: var(--color-background);
-
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr auto;
   gap: 2rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-family-bits);
-  color: var(--color-text);
-
 }
 
 header {
@@ -135,21 +75,4 @@ aside {
       }
     }
   }
-}
-
-.font-code {
-  font-family: var(--font-family-bits);
-}
-
-.user-select-none {
-  user-select: none;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-
-}
-
-.color-subdued {
-  color: var(--color-subdued);
 }
