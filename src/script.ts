@@ -8,7 +8,7 @@ import "./components/svg-switch.ts";
 import "./modules/sidebar.ts"
 
 // Theme
-import "./theme.ts";
+import "./modules/theme.ts";
 
 // Type Definitions
 import type { BitCell } from "./components/bit-cell.ts";

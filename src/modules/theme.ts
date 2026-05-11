@@ -1,5 +1,5 @@
 // Components
-import { BitCell } from "./components/bit-cell";
+import { BitCell } from "../components/bit-cell";
 
 /* Defines the Theme type and functions for managing light/dark themes in the application. */
 type Theme = 'light' | 'dark';
