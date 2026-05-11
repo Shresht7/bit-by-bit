@@ -78,7 +78,7 @@
   </main>
 
   <aside>
-    <display-flex id="sidebar" flex-direction="column" justify-contents="space-between" align-items="flex-end"
+    <display-flex id="sidebar" flex-direction="column" justify-contents="space-between" align-items="flex-start"
       gap="1rem">
 
       <nav>
@@ -86,13 +86,15 @@
         </ul>
       </nav>
 
-      <display-flex class="user-select-none" flex-direction="row" justify-contents="center" align-items="center" gap="0"
-        style="scale: 0.66;">
-        THEME:
-        <div style="scale: 0.66;">
-          <bit-cell class="theme-toggle" value="0" interactive></bit-cell>
-        </div>
-      </display-flex>
+      <section class="bottom">
+        <display-flex class="user-select-none" flex-direction="row" justify-contents="center" align-items="center"
+          gap="0" style="scale: 0.66;">
+          THEME:
+          <div style="scale: 0.66;">
+            <bit-cell class="theme-toggle" value="0" interactive></bit-cell>
+          </div>
+        </display-flex>
+      </section>
 
     </display-flex>
   </aside>
