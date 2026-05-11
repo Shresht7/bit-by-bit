@@ -67,16 +67,18 @@ aside {
 
 main {
   margin-inline: auto;
-  padding-inline: 1rem;
   grid-row: 1 / -1;
   grid-column: 2 / 3;
 }
 
 section.topic {
-  margin: 2rem;
+  margin: 1rem 2rem;
 
   h2 {
-    margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    background: var(--color-background);
+    padding-block: 0.75rem;
   }
 
   p {
