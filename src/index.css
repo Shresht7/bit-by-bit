@@ -111,3 +111,23 @@ section.showcase {
   margin-inline: auto;
   width: 100%;
 }
+
+.lhs-rhs {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  place-items: center;
+  gap: 1rem;
+
+  & :nth-child(3n-2) {
+    justify-self: end;
+  }
+
+  & :nth-child(3n-1) {
+    justify-self: center;
+  }
+
+  & :nth-child(3n) {
+    justify-self: start;
+  }
+}

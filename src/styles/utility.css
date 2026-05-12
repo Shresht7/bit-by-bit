@@ -20,3 +20,8 @@
 .flex-column {
     flex-direction: column;
 }
+
+.grid-center {
+    display: grid;
+    place-items: center;
+}
