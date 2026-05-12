@@ -28,7 +28,7 @@ export class ExpandedNumber extends LitElement {
 
     static styles = [flex, css /* css */ `
         span {
-            font-family: var(--font-family-bits);
+            font-family: var(--font-family-code);
         }
         
         .font-large {

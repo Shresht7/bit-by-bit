@@ -33,7 +33,7 @@ aside {
 #sidebar {
   height: calc(100dvh - var(--header-height));
   margin-inline: auto;
-  font-family: var(--font-family-bits);
+  font-family: var(--font-family-code);
   padding-block: 1.25em 0.67em;
 
   nav ul {
