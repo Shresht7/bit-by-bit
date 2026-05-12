@@ -1,11 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
     <style>
-    :root { --bg: #0f172a; --fg: #e2e8f0; }
-    @media (prefers-color-scheme: light) {
-      :root { --bg: #f8fafc; --fg: #0f172a; }
-    }
+        :root {
+            --clr-fg: whitesmoke;
+            --clr-bg: #676767;
+        }
     </style>
-
-    <rect x="4" y="4" width="56" height="56" rx="8" fill="var(--bg)"/>
-    <text x="32" y="42" text-anchor="middle" font-family="Kode Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="36" font-weight="700" fill="var(--fg)">01</text>
+    <rect x="2" y="2" width="28" height="28" rx="2" fill="var(--clr-bg)"/>
+    <path d="M7.04 8.59998H13.04L14.82 11.26V21.08L13 23H7L5.18 20.32V10.5L7.04 8.59998ZM7.6 11.26V16.98L12.4 12V11.72L11.82 10.86H7.96L7.6 11.26ZM7.6 19.92L8.18 20.74H12.02L12.4 20.34V14.8L7.6 19.8V19.92Z" fill="var(--clr-fg)"/>
+    <path d="M21.0322 8.59998H23.2322V20.74H26.8122V23H17.1722V20.74H20.7922V12.08L18.6322 14.34L17.3322 12.4L21.0322 8.59998Z" fill="var(--clr-fg)"/>
 </svg>
