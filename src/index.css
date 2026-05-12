@@ -102,7 +102,7 @@ section.topic {
   }
 
   p {
-    margin-bottom: 0.5rem;
+    margin-block: 1rem;
   }
 }
 
