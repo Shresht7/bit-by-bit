@@ -24,6 +24,9 @@ export class ExpandedNumber extends LitElement {
     @property({ type: Boolean, attribute: 'show-breakdown', reflect: true })
     showBreakdown = false;
 
+    @property({ type: Boolean, attribute: 'show-value', reflect: true })
+    showValue = true;
+
     constructor() {
         super();
         this.addEventListener("value-changed", this.updateValue);
@@ -68,8 +71,7 @@ export class ExpandedNumber extends LitElement {
                     </div>
                 `)}
                 </div>
-                <span class="font-large grayed-out">=</span>
-                <span class="font-large">${this.value.toString().padStart(Math.log10(this.base ** (this.length - 1)) + 1, '0')}</span>
+                ${this.renderValue()}
             </div>
         `;
     }
@@ -79,6 +81,16 @@ export class ExpandedNumber extends LitElement {
         return html /* html */ `
             <span class=${part === 0 ? "grayed-out" : ""}>${this.base}<sup>${length - idx - 1}</sup></span>
             <span class=${part === 0 ? "grayed-out" : ""}>${this.base !== 2 ? `${part}×` : ""}${this.base ** (length - idx - 1)}</span>            
+        `;
+    }
+
+    renderValue() {
+        if (!this.showValue) return null;
+        const digitCount = Math.log10(this.base ** (this.length - 1)) + 1;
+        const value = this.value.toString().padStart(digitCount, '0');
+        return html /* html */ `
+            <span class="font-large grayed-out">=</span>
+            <span class="font-large">${value}</span>
         `;
     }
 }
