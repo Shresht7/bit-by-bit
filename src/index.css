@@ -57,6 +57,22 @@ aside {
           background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
         }
       }
+
+      &:has(a[href].active) {
+        font-weight: bold;
+
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 3px;
+          background-color: var(--color-subdued);
+        }
+      }
     }
 
   }

@@ -5,6 +5,7 @@ import "./components/svg-switch.ts";
 
 // Modules
 import "./modules/sidebar.ts"
+import "./modules/intersection-observer.ts"
 
 // Theme
 import "./modules/theme.ts";
