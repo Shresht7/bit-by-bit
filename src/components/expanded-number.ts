@@ -53,19 +53,19 @@ export class ExpandedNumber extends LitElement {
         const parts = this.value.toString(this.base).padStart(this.length, '0').split('').map(digit => parseInt(digit, this.base));
 
         return html /* html */ `
-            <display-flex flex-direction="row" gap="1.5rem">
-                <display-flex flex-direction="row" align-items="center" gap="1rem">
+            <div class="flex flex-row" style="gap: 1.5rem;">
+                <div class="flex flex-row" style="gap: 1rem;">
                 ${map(parts, (part, idx) => html /* html */ `
-                    <display-flex flex-direction="column" align-items="center" gap="1rem">
+                    <div class="flex flex-column" style="gap: 1rem;">
                         <bit-cell value="${part}" base="${this.base}" interactive></bit-cell>
                         <span class=${part === 0 ? "grayed-out" : ""}>${this.base}<sup>${parts.length - idx - 1}</sup></span>
                         <span class=${part === 0 ? "grayed-out" : ""}>${this.base !== 2 ? `${part}×` : ""}${this.base ** (parts.length - idx - 1)}</span>
-                    </display-flex>
+                    </div>
                 `)}
-                </display-flex>
+                </div>
                 <span class="font-large grayed-out">=</span>
                 <span class="font-large">${this.value.toString().padStart(Math.log10(this.base ** (this.length - 1)) + 1, '0')}</span>
-            </display-flex>
+            </div>
         `;
     }
 }

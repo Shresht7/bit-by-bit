@@ -1,5 +1,4 @@
 // Components
-import "./components/display-flex.ts";
 import "./components/bit-cell.ts";
 import "./components/expanded-number.ts";
 import "./components/svg-switch.ts";

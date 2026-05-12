@@ -24,19 +24,18 @@
         either 0 or 1.</p>
 
       <section class="showcase">
-        <display-flex class="user-select-none" flex-direction="column" justify-contents="center" align-items="center"
-          gap="2rem">
-          <display-flex flex-direction="row" justify-contents="center" align-items="center" gap="1em">
+        <div class="flex flex-column user-select-none" style="gap: 2rem;">
+          <div class="flex flex-row">
             <bit-cell value="0" class="cursor-pointer" data-sync-group="introduction"></bit-cell>
             <span class="font-code color-subdued">or</span>
             <bit-cell value="1" class="cursor-pointer" data-sync-group="introduction"></bit-cell>
-          </display-flex>
+          </div>
 
-          <display-flex flex-direction="row" justify-contents="center" align-items="center" gap="1em">
+          <div class="flex flex-row">
             <svg-switch value="0" class="cursor-pointer" data-sync-group="introduction"></svg-switch>
             <span class="font-code color-subdued">or</span>
             <svg-switch value="1" class="cursor-pointer" data-sync-group="introduction"></svg-switch>
-          </display-flex>
+          </div>
       </section>
     </section>
 
@@ -48,10 +47,10 @@
         8, and so on, doubling with each position.</p>
 
       <section class="showcase">
-        <display-flex flex-direction="column" gap="3rem">
+        <div class="flex flex-column" style="gap: 3rem;">
           <expanded-number value="125" base="10" length="3" data-sync-group="numbers"></expanded-number>
           <expanded-number value="125" data-sync-group="numbers"></expanded-number>
-        </display-flex>
+        </div>
       </section>
     </section>
 
@@ -67,12 +66,12 @@
       </ul>
 
       <section class="showcase">
-        <display-flex flex-direction="column" gap="2rem">
+        <div class="flex flex-column" style="gap: 2rem;">
           <expanded-number value="5" base="2" length="4"></expanded-number>
           <expanded-number value="10" base="2" length="4"></expanded-number>
           <hr style="width: 100%">
           <expanded-number value="15" base="2" length="4"></expanded-number>
-        </display-flex>
+        </div>
       </section>
 
   </main>
@@ -86,13 +85,12 @@
       </nav>
 
       <section class="bottom">
-        <display-flex class="user-select-none" flex-direction="row" justify-contents="center" align-items="center"
-          gap="0" style="scale: 0.66;">
+        <div class="flex flex-row user-select-none" style="gap: 0; scale: 0.66;">
           THEME:
           <div style="scale: 0.66;">
             <bit-cell class="theme-toggle" value="0" interactive></bit-cell>
           </div>
-        </display-flex>
+        </div>
       </section>
 
     </div>
