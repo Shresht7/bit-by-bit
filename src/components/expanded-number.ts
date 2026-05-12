@@ -21,6 +21,9 @@ export class ExpandedNumber extends LitElement {
     @property({ type: Number, reflect: true })
     length = 8;
 
+    @property({ type: Boolean, attribute: 'show-breakdown', reflect: true })
+    showBreakdown = false;
+
     constructor() {
         super();
         this.addEventListener("value-changed", this.updateValue);
@@ -61,14 +64,21 @@ export class ExpandedNumber extends LitElement {
                 ${map(parts, (part, idx) => html /* html */ `
                     <div class="flex flex-column" style="gap: 1rem;">
                         <bit-cell value="${part}" base="${this.base}" interactive></bit-cell>
-                        <span class=${part === 0 ? "grayed-out" : ""}>${this.base}<sup>${parts.length - idx - 1}</sup></span>
-                        <span class=${part === 0 ? "grayed-out" : ""}>${this.base !== 2 ? `${part}×` : ""}${this.base ** (parts.length - idx - 1)}</span>
+                        ${this.renderBreakdown(part, idx, parts.length)}
                     </div>
                 `)}
                 </div>
                 <span class="font-large grayed-out">=</span>
                 <span class="font-large">${this.value.toString().padStart(Math.log10(this.base ** (this.length - 1)) + 1, '0')}</span>
             </div>
+        `;
+    }
+
+    renderBreakdown(part: number, idx: number, length: number) {
+        if (!this.showBreakdown) return null;
+        return html /* html */ `
+            <span class=${part === 0 ? "grayed-out" : ""}>${this.base}<sup>${length - idx - 1}</sup></span>
+            <span class=${part === 0 ? "grayed-out" : ""}>${this.base !== 2 ? `${part}×` : ""}${this.base ** (length - idx - 1)}</span>            
         `;
     }
 }
