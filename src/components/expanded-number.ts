@@ -3,6 +3,9 @@ import { LitElement, html, css } from "lit";
 import { customElement, property, queryAll } from "lit/decorators.js";
 import { map } from "lit/directives/map.js";
 
+// Styles
+import { flex } from "../styles/lit.styles";
+
 // Type Definitions
 import type { BitCell } from "./bit-cell";
 
@@ -23,7 +26,7 @@ export class ExpandedNumber extends LitElement {
         this.addEventListener("value-changed", this.updateValue);
     }
 
-    static styles = css /* css */ `
+    static styles = [flex, css /* css */ `
         span {
             font-family: var(--font-family-bits);
         }
@@ -36,7 +39,7 @@ export class ExpandedNumber extends LitElement {
         .grayed-out {
             opacity: 0.25;
         }
-    `;
+    `];
 
     @queryAll("bit-cell")
     private bitCells!: NodeListOf<BitCell>;

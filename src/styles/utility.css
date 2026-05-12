@@ -8,9 +8,9 @@
 
 .flex {
     display: flex;
-    justify-content: var(--justify-content, initial);
-    align-items: var(--align-items, initial);
-    gap: var(--gap, initial);
+    justify-content: var(--justify-content, center);
+    align-items: var(--align-items, center);
+    gap: var(--gap, 1rem);
 }
 
 .flex-row {
