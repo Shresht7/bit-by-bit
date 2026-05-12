@@ -67,6 +67,33 @@
 
     <section id="numbers" class="topic">
       <h2>Numbers</h2>
+
+      <section id="decimal-system" class="topic subtopic">
+        <h3>Learning to Count in Decimal</h3>
+
+        <p>In the regular decimal system, we make use of ten symbols (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) to represent the
+          digits of a number.</p>
+
+        <div class="flex flex-row" style="justify-content: flex-start;">
+          <expanded-number value="0123456789" base="10" length="10" hide-value noninteractive></expanded-number>
+        </div>
+
+        <p>When we reach 9, we start a new column to the left, reset the current column to 0, and continue counting.
+          Everytime we complete the right-most column, we carry over one to the next column. This repeats until we reach
+          the end of the second column; and so, we continue this process for each subsequent column.</p>
+      </section>
+
+      <section id="binary-system" class="topic subtopic">
+        <h3>Learning to Count in Binary</h3>
+
+        <p>While, in the binary system, we use only two symbols: <code>0</code> and <code>1</code>; The general idea is
+          the same.</p>
+
+        <div class="flex flex-row" style="justify-content: flex-start;">
+          <expanded-number value="1" length="2" hide-value noninteractive></expanded-number>
+        </div>
+      </section>
+
       <p>In the binary system, numbers are represented using only two symbols: 0 and 1. Each digit in a binary number is
         called a <strong>bit</strong>, and the value of each bit is determined by its position in the number.</p>
       <p>The rightmost bit (least significant bit) has a value of 1, the next bit to the left has a value of 2, then 4,

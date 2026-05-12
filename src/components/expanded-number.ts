@@ -24,8 +24,11 @@ export class ExpandedNumber extends LitElement {
     @property({ type: Boolean, attribute: 'show-breakdown', reflect: true })
     showBreakdown = false;
 
-    @property({ type: Boolean, attribute: 'show-value', reflect: true })
-    showValue = true;
+    @property({ type: Boolean, attribute: 'hide-value', reflect: true })
+    hideValue = false;
+
+    @property({ type: Boolean, reflect: true })
+    noninteractive = false;
 
     constructor() {
         super();
@@ -51,6 +54,7 @@ export class ExpandedNumber extends LitElement {
     private bitCells!: NodeListOf<BitCell>;
 
     updateValue = () => {
+        if (this.noninteractive) return;
         let sum = 0;
         this.bitCells.forEach((cell, cellIdx) => {
             sum += cell.value * (this.base ** (this.bitCells.length - cellIdx - 1));
@@ -66,7 +70,7 @@ export class ExpandedNumber extends LitElement {
                 <div class="flex flex-row" style="gap: 1rem;">
                 ${map(parts, (part, idx) => html /* html */ `
                     <div class="flex flex-column" style="gap: 1rem;">
-                        <bit-cell value="${part}" base="${this.base}" interactive></bit-cell>
+                        <bit-cell value="${part}" base="${this.base}" ?interactive=${!this.noninteractive}></bit-cell>
                         ${this.renderBreakdown(part, idx, parts.length)}
                     </div>
                 `)}
@@ -85,7 +89,7 @@ export class ExpandedNumber extends LitElement {
     }
 
     renderValue() {
-        if (!this.showValue) return null;
+        if (this.hideValue) return null;
         const digitCount = Math.log10(this.base ** (this.length - 1)) + 1;
         const value = this.value.toString().padStart(digitCount, '0');
         return html /* html */ `
