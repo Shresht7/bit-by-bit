@@ -46,11 +46,15 @@ aside {
       color: var(--color-text);
 
       a {
+        display: block;
+        width: 100%;
         text-decoration: none;
         color: inherit;
+        padding-inline: 0.75rem;
 
         &:hover {
-          text-decoration: underline;
+          text-decoration: none;
+          background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
         }
       }
     }
