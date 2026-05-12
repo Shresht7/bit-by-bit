@@ -14,6 +14,9 @@ export class BitCell extends LitElement {
     @property({ type: Number, reflect: true })
     base = 2;
 
+    @property({ type: Boolean, reflect: true })
+    boolean = false;
+
     /** Whether the bit cell is interactive and can be flipped. */
     @property({ type: Boolean, reflect: true })
     interactive = false;
@@ -68,6 +71,10 @@ export class BitCell extends LitElement {
             interactive: this.interactive,
         };
 
+        const valIfTrue = this.getAttribute("data-true") ?? "True";
+        const valIfFalse = this.getAttribute("data-false") ?? "False";
+        const value = this.boolean ? (this.value ? valIfTrue : valIfFalse) : this.value;
+
         return html /* html */ `
         <span
             class="${classMap(classes)}"
@@ -75,7 +82,7 @@ export class BitCell extends LitElement {
             data-base="${this.base}"
             @click=${this.flip}
         >
-            ${this.value}
+            ${value}
         </span>
         `;
     };

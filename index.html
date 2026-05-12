@@ -22,9 +22,15 @@
 
     <section id="introduction" class="topic">
       <h2>Introduction</h2>
-      <p>The binary number system is the foundation of all digital computing.</p>
-      <p>The most fundamental unit of information in computing is the <strong>bit</strong>, which can have a value of
-        either 0 or 1.</p>
+      <p>A computer, is essentially a collection of tiny electrical switches (called transistors). A switch can be in
+        one of two discreet states: either on or off. This is the foundation for all digital systems.</p>
+
+      <p>Many things in life can be modeled using a two-state approach. Is it night or day? Is this thing on or off?
+        yes or no? true or false? Answers to a lot of questions like these can be represented by using only two possible
+        states.</p>
+
+      <p>Depending on the domain, these state can be represented differently. In computing, the most fundamental unit of
+        information is the <strong>bit</strong>, which can have a value of either 0 or 1.</p>
 
       <section class="showcase">
         <div class="flex flex-column user-select-none" style="gap: 2rem;">
@@ -32,6 +38,20 @@
             <bit-cell value="0" class="cursor-pointer" data-sync-group="introduction"></bit-cell>
             <span class="font-code color-subdued">or</span>
             <bit-cell value="1" class="cursor-pointer" data-sync-group="introduction"></bit-cell>
+          </div>
+
+          <div class="flex flex-row">
+            <bit-cell value="0" class="cursor-pointer" data-sync-group="introduction" boolean></bit-cell>
+            <span class="font-code color-subdued">or</span>
+            <bit-cell value="1" class="cursor-pointer" data-sync-group="introduction" boolean></bit-cell>
+          </div>
+
+          <div class="flex flex-row">
+            <bit-cell value="0" class="cursor-pointer" data-sync-group="introduction" boolean data-true="yes"
+              data-false="no"></bit-cell>
+            <span class="font-code color-subdued">or</span>
+            <bit-cell value="1" class="cursor-pointer" data-sync-group="introduction" boolean data-true="yes"
+              data-false="no"></bit-cell>
           </div>
 
           <div class="flex flex-row">
