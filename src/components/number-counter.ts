@@ -12,9 +12,15 @@ export class NumberCounter extends LitElement {
     @property({ type: Number, reflect: true })
     base = 2;
 
-    increment = () => this.value += 1;
+    increment() {
+        if (this.value === Number.MAX_SAFE_INTEGER) return;
+        this.value += 1;
+    }
 
-    decrement = () => this.value -= 1;
+    decrement() {
+        if (this.value === 0) return;
+        this.value -= 1;
+    }
 
     static styles = [
         flex,
@@ -48,8 +54,12 @@ export class NumberCounter extends LitElement {
                 <div class="flex flex-row" style="gap: 3rem;">
                     <expanded-number .value=${this.value} .base=${this.base} length="0" show-breakdown noninteractive></expanded-number>
                     <div class="flex flex-column" style="gap: 0.5rem;">
-                        <button @click=${this.increment}> Count Up </button>
-                        <button @click=${this.decrement}> Count Down</button>
+                        <button @click=${this.increment} ?disabled=${this.value === Number.MAX_SAFE_INTEGER}>
+                            Count Up
+                        </button>
+                        <button @click=${this.decrement} ?disabled=${this.value === 0}>
+                            Count Down
+                        </button>
                     </div>
                 </div>
             </div>
