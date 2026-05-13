@@ -21,8 +21,39 @@ export class BitCell extends LitElement {
     @property({ type: Boolean, reflect: true })
     interactive = false;
 
+    /** Increments the value of the bit cell by a specified amount (default: 1) */
+    increment(by: number = 1) {
+        if (!this.interactive) { return }
+        if (this.value >= Number.MAX_SAFE_INTEGER) { return }
+        const prev = this.value;
+        this.value = this.value + by;
+        this.dispatchEvent(new BitUpdateEvent(this.value, prev));
+    }
+
+    /** Decrements the value of the bit cell by a specified amount (default: 1) */
+    decrement(by: number = 1) {
+        if (!this.interactive) { return }
+        if (this.value <= 0) { return }
+        const prev = this.value;
+        this.value = this.value - by;
+        this.dispatchEvent(new BitUpdateEvent(this.value, prev));
+    }
+
+    /** Resets the value of the bit cell to a specified value (default: 0) */
+    reset(to: number = 0) {
+        if (!this.interactive) { return }
+        const prev = this.value;
+        this.value = to;
+        this.dispatchEvent(new BitUpdateEvent(this.value, prev));
+    }
+
     /** Flips the value of the bit between 0 and base - 1. */
     flip() {
+        if (this.base !== 2) {
+            console.warn("BitCell flip is only supported for base 2. Current base:", this.base);
+            return;
+        }
+
         if (this.interactive) {
             const prev = this.value;
             this.value = (this.value + 1) % this.base;
@@ -85,8 +116,9 @@ export class BitCell extends LitElement {
     };
 }
 
+/** Custom event that is dispatched when the value of the {@link BitCell bit cell} is updated. */
 export class BitUpdateEvent extends CustomEvent<{ value: number, prev: number }> {
-    static readonly type = "bit-update";
+    static readonly type = 'bit-update';
 
     constructor(value: number, prev: number) {
         super(BitUpdateEvent.type, {
@@ -96,6 +128,7 @@ export class BitUpdateEvent extends CustomEvent<{ value: number, prev: number }>
         });
     }
 
+    /** Type guard to check if an event is a {@link BitUpdateEvent} */
     static isBitUpdateEvent(event: Event): event is BitUpdateEvent {
         return event.type === BitUpdateEvent.type;
     }
