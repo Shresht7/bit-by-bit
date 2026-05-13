@@ -56,6 +56,16 @@ export class BitCell extends LitElement {
         }
     }
 
+    handleMouseWheel(event: WheelEvent) {
+        if (!this.interactive) { return }
+        event.preventDefault();
+        if (event.deltaY < 0) {
+            this.increment();
+        } else if (event.deltaY > 0) {
+            this.decrement();
+        }
+    }
+
     /** Styles for the bit cell. */
     static styles = css /* css */ `
        .bit {
@@ -104,6 +114,7 @@ export class BitCell extends LitElement {
             data-value="${this.value}"
             data-base="${this.base}"
             @click=${this.flip}
+            @mousewheel=${this.handleMouseWheel}
         >
             ${value}
         </span>
