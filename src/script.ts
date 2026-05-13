@@ -2,6 +2,7 @@
 import "./components/bit-cell.ts";
 import "./components/expanded-number.ts";
 import "./components/svg-switch.ts";
+import "./components/number-counter.ts";
 
 // Modules
 import "./modules/sidebar.ts"
