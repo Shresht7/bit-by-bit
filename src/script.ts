@@ -5,6 +5,7 @@ import "./components/svg-switch.ts";
 import "./components/number-counter.ts";
 
 // Modules
+import "./modules/scroll.ts"
 import "./modules/sidebar.ts"
 import "./modules/intersection-observer.ts"
 

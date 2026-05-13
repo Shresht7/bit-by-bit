@@ -19,9 +19,4 @@ document.querySelectorAll("section.topic").forEach((section, idx) => {
         listItem.appendChild(link);
         sidebar.appendChild(listItem);
     }
-
-    // Add click listener to the entire section to navigate to it when clicked
-    section.addEventListener("click", () => {
-        window.location.replace(`#${sectionId}`);
-    });
 });
