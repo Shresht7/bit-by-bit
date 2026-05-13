@@ -25,16 +25,31 @@ export class NumberCounter extends LitElement {
             margin-block: 2rem;
             font-family: var(--font-family-code);
         }
+
+        button {
+            width: 100%;
+            padding: 0.25rem 0.5rem;
+            font-family: var(--font-family-code);
+            border-radius: 2px;
+            border: 1px solid var(--color-background);
+            cursor: pointer;
+
+            &:hover {
+                background-color: color-mix(in srgb, var(--color-background) 50%, var(--color-text) 50%);
+                outline: 1px solid var(--color-text);
+                outline-offset: 2px;
+            }
+        }
     `];
 
     render() {
         return html /* html */ `
             <div class="counter-container">
-                <div class="flex flex-column">
+                <div class="flex flex-row" style="gap: 3rem;">
                     <expanded-number .value=${this.value} .base=${this.base} length="0" show-breakdown noninteractive></expanded-number>
-                    <div class="flex flex-row" style="gap: 0.5rem;">
-                        <button @click=${this.increment}> +1</button>
-                        <button @click=${this.decrement}> -1</button>
+                    <div class="flex flex-column" style="gap: 0.5rem;">
+                        <button @click=${this.increment}> Count Up </button>
+                        <button @click=${this.decrement}> Count Down</button>
                     </div>
                 </div>
             </div>
