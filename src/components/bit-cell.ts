@@ -49,11 +49,6 @@ export class BitCell extends LitElement {
 
     /** Flips the value of the bit between 0 and base - 1. */
     flip() {
-        if (this.base !== 2) {
-            console.warn("BitCell flip is only supported for base 2. Current base:", this.base);
-            return;
-        }
-
         if (this.interactive) {
             const prev = this.value;
             this.value = (this.value + 1) % this.base;
