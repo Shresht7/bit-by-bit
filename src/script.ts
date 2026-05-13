@@ -9,6 +9,9 @@ import "./modules/scroll.ts"
 import "./modules/sidebar.ts"
 import "./modules/intersection-observer.ts"
 
+// Events
+import { ValueChangedEvent } from "./components/expanded-number.ts";
+
 // Theme
 import "./modules/theme.ts";
 
@@ -34,7 +37,7 @@ syncBits.forEach(bit => bit?.addEventListener("click", () => {
 const syncNumbers = document.querySelectorAll<ExpandedNumber>("section.showcase expanded-number[data-sync-group]");
 
 // Add value-changed event listeners to each sync number to update all numbers in the same sync group when one is changed.
-syncNumbers.forEach(number => number?.addEventListener("value-changed", () => {
+syncNumbers.forEach(number => number?.addEventListener(ValueChangedEvent.type, () => {
     const targetSyncGroup = number.getAttribute("data-sync-group");
     if (!targetSyncGroup) return;
     syncNumbers.forEach(n => {

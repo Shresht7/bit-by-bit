@@ -24,12 +24,9 @@ export class BitCell extends LitElement {
     /** Flips the value of the bit between 0 and base - 1. */
     flip() {
         if (this.interactive) {
+            const prev = this.value;
             this.value = (this.value + 1) % this.base;
-            this.dispatchEvent(new CustomEvent("value-changed", {
-                detail: { value: this.value },
-                bubbles: true,
-                composed: true,
-            }));
+            this.dispatchEvent(new BitUpdateEvent(this.value, prev));
         }
     }
 
@@ -86,4 +83,20 @@ export class BitCell extends LitElement {
         </span>
         `;
     };
+}
+
+export class BitUpdateEvent extends CustomEvent<{ value: number, prev: number }> {
+    static readonly type = "bit-update";
+
+    constructor(value: number, prev: number) {
+        super(BitUpdateEvent.type, {
+            detail: { value, prev },
+            bubbles: true,
+            composed: true,
+        });
+    }
+
+    static isBitUpdateEvent(event: Event): event is BitUpdateEvent {
+        return event.type === BitUpdateEvent.type;
+    }
 }

@@ -30,11 +30,6 @@ export class ExpandedNumber extends LitElement {
     @property({ type: Boolean, reflect: true })
     noninteractive = false;
 
-    constructor() {
-        super();
-        this.addEventListener("value-changed", this.updateValue);
-    }
-
     static styles = [flex, css /* css */ `
         span {
             font-family: var(--font-family-code);
@@ -60,13 +55,14 @@ export class ExpandedNumber extends LitElement {
             sum += cell.value * (this.base ** (this.bitCells.length - cellIdx - 1));
         });
         this.value = sum;
+        this.dispatchEvent(new ValueChangedEvent(this.value));
     }
 
     render() {
         const parts = this.value.toString(this.base).padStart(this.length, '0').split('').map(digit => parseInt(digit, this.base));
 
         return html /* html */ `
-            <div class="flex flex-row" style="gap: 1.5rem;">
+            <div class="flex flex-row" style="gap: 1.5rem;" @bit-update=${this.updateValue}>
                 <div class="flex flex-row" style="gap: 1rem;">
                 ${map(parts, (part, idx) => html /* html */ `
                     <div class="flex flex-column" style="gap: 1rem;">
@@ -96,5 +92,22 @@ export class ExpandedNumber extends LitElement {
             <span class="font-large grayed-out">=</span>
             <span class="font-large">${value}</span>
         `;
+    }
+}
+
+export class ValueChangedEvent extends CustomEvent<{ value: number }> {
+
+    static readonly type = "value-changed";
+
+    constructor(value: number) {
+        super(ValueChangedEvent.type, {
+            detail: { value },
+            bubbles: true,
+            composed: true,
+        });
+    }
+
+    static isValueChangedEvent(event: Event): event is ValueChangedEvent {
+        return event.type === ValueChangedEvent.type;
     }
 }
