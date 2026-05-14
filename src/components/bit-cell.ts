@@ -1,6 +1,6 @@
 // Library
 import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, eventOptions, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 
 @customElement("bit-cell")
@@ -56,6 +56,7 @@ export class BitCell extends LitElement {
         }
     }
 
+    @eventOptions({ passive: false })
     handleMouseWheel(event: WheelEvent) {
         if (!this.interactive) { return }
         event.preventDefault();
