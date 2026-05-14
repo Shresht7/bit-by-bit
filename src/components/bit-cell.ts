@@ -110,15 +110,15 @@ export class BitCell extends LitElement {
         const value = this.boolean ? (this.value ? valIfTrue : valIfFalse) : this.value;
 
         return html /* html */ `
-        <span
-            class="${classMap(classes)}"
-            data-value="${this.value}"
-            data-base="${this.base}"
-            @click=${this.flip}
-            @mousewheel=${this.handleMouseWheel}
-        >
-            ${value}
-        </span>
+            <div
+                class="${classMap(classes)}"
+                data-value="${this.value}"
+                data-base="${this.base}"
+                @click=${this.flip}
+                @mousewheel=${this.handleMouseWheel}
+            >
+                ${value}
+            </div>
         `;
     };
 }
