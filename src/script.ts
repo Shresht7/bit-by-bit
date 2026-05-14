@@ -1,5 +1,6 @@
 // Components
 import "./components/bit-cell.ts";
+import "./components/bit-array.ts";
 import "./components/expanded-number.ts";
 import "./components/svg-switch.ts";
 import "./components/number-counter.ts";
@@ -10,7 +11,7 @@ import "./modules/sidebar.ts"
 import "./modules/intersection-observer.ts"
 
 // Events
-import { ValueChangedEvent } from "./components/expanded-number.ts";
+import { ValueChangedEvent } from "./components/bit-array.ts";
 
 // Theme
 import "./modules/theme.ts";

@@ -1,25 +1,13 @@
 // Library
-import { LitElement, html, css } from "lit";
-import { customElement, property, queryAll } from "lit/decorators.js";
+import { html, css, CSSResult } from "lit";
+import { customElement, property } from "lit/decorators.js";
 import { map } from "lit/directives/map.js";
 
-// Styles
-import { flex } from "../styles/lit.styles";
-
-// Type Definitions
-import type { BitCell } from "./bit-cell";
+// Components
+import { BitArray } from "./bit-array";
 
 @customElement("expanded-number")
-export class ExpandedNumber extends LitElement {
-
-    @property({ type: Number, reflect: true })
-    value = 0;
-
-    @property({ type: Number, reflect: true })
-    base = 2;
-
-    @property({ type: Number, reflect: true })
-    length = 8;
+export class ExpandedNumber extends BitArray {
 
     @property({ type: Boolean, attribute: 'show-breakdown', reflect: true })
     showBreakdown = false;
@@ -27,10 +15,7 @@ export class ExpandedNumber extends LitElement {
     @property({ type: Boolean, attribute: 'hide-value', reflect: true })
     hideValue = false;
 
-    @property({ type: Boolean, reflect: true })
-    noninteractive = false;
-
-    static styles = [flex, css /* css */ `
+    static styles: CSSResult[] = [...super.styles, css /* css */ `
         span {
             font-family: var(--font-family-code);
         }
@@ -45,18 +30,6 @@ export class ExpandedNumber extends LitElement {
         }
     `];
 
-    @queryAll("bit-cell")
-    private bitCells!: NodeListOf<BitCell>;
-
-    updateValue = () => {
-        if (this.noninteractive) return;
-        let sum = 0;
-        this.bitCells.forEach((cell, cellIdx) => {
-            sum += cell.value * (this.base ** (this.bitCells.length - cellIdx - 1));
-        });
-        this.value = sum;
-        this.dispatchEvent(new ValueChangedEvent(this.value));
-    }
 
     render() {
         const parts = this.value.toString(this.base).padStart(this.length, '0').split('').map(digit => parseInt(digit, this.base));
@@ -66,7 +39,7 @@ export class ExpandedNumber extends LitElement {
                 <div class="flex flex-row" style="gap: 1rem;">
                 ${map(parts, (part, idx) => html /* html */ `
                     <div class="flex flex-column" style="gap: 1rem;">
-                        <bit-cell value="${part}" base="${this.base}" ?interactive=${!this.noninteractive}></bit-cell>
+                        <bit-cell .value=${part} .base=${this.base} ?interactive=${!this.noninteractive}></bit-cell>
                         ${this.renderBreakdown(part, idx, parts.length)}
                     </div>
                 `)}
@@ -92,22 +65,5 @@ export class ExpandedNumber extends LitElement {
             <span class="font-large grayed-out">=</span>
             <span class="font-large">${value}</span>
         `;
-    }
-}
-
-export class ValueChangedEvent extends CustomEvent<{ value: number }> {
-
-    static readonly type = "value-changed";
-
-    constructor(value: number) {
-        super(ValueChangedEvent.type, {
-            detail: { value },
-            bubbles: true,
-            composed: true,
-        });
-    }
-
-    static isValueChangedEvent(event: Event): event is ValueChangedEvent {
-        return event.type === ValueChangedEvent.type;
     }
 }
