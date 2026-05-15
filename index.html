@@ -126,33 +126,33 @@
     </section>
 
     <section id="addition" class="topic">
-      <h2>Addition</h2>
-      <p>Binary addition follows the same principles as decimal addition, but it only involves two digits: 0 and 1.</p>
+      <h2>Bitwise Addition</h2>
+      <p>Binary addition follows the same principles as decimal addition, but it only involves: <code>0</code> and
+        <code>1</code>.
+      </p>
       <p>When adding two bits, the possible combinations are:</p>
+
       <ul>
-        <li>0 + 0 = 0</li>
-        <li>0 + 1 = 1</li>
-        <li>1 + 0 = 1</li>
-        <li>1 + 1 = 10 (which is 0 with a carry of 1 to the next higher bit)</li>
+        <li><code>0</code> + <code>0</code> = <code>0</code></li>
+        <li><code>0</code> + <code>1</code> = <code>1</code></li>
+        <li><code>1</code> + <code>0</code> = <code>1</code></li>
+        <li><code>1</code> + <code>1</code> = <code>10</code> (which is <code>0</code> with a carry of <code>1</code> to
+          the next higher bit)</li>
       </ul>
 
       <section class="showcase">
-        <div class="flex flex-column" style="gap: 2rem;">
-          <bit-array value="5" base="2" length="4"></bit-array>
-          <bit-array value="10" base="2" length="4"></bit-array>
-          <hr style="width: 100%">
-          <bit-array value="15" base="2" length="4"></bit-array>
-        </div>
+        <bitwise-operation operator="ADD" operand1="10" operand2="5"></bitwise-operation>
       </section>
+    </section>
 
   </main>
 
+  <!-- SIDEBAR -->
   <aside>
     <div id="sidebar" class="flex flex-column" style="--justify-content: space-between; --align-items: flex-start;">
 
       <nav>
-        <ul>
-        </ul>
+        <ul></ul>
       </nav>
 
       <section class="bottom">
