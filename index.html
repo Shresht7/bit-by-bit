@@ -126,17 +126,17 @@
     </section>
 
     <section id="addition" class="topic">
-      <h2>Bitwise Addition</h2>
+      <h2>Bitwise Addition (<code>+</code>)</h2>
       <p>Binary addition follows the same principles as decimal addition, but it only involves: <code>0</code> and
         <code>1</code>.
       </p>
       <p>When adding two bits, the possible combinations are:</p>
 
       <ul>
-        <li><code>0</code> + <code>0</code> = <code>0</code></li>
-        <li><code>0</code> + <code>1</code> = <code>1</code></li>
-        <li><code>1</code> + <code>0</code> = <code>1</code></li>
-        <li><code>1</code> + <code>1</code> = <code>10</code> (which is <code>0</code> with a carry of <code>1</code> to
+        <li><code>0 + 0</code> = <code>0</code></li>
+        <li><code>0 + 1</code> = <code>1</code></li>
+        <li><code>1 + 0</code> = <code>1</code></li>
+        <li><code>1 + 1</code> = <code>10</code> (which is <code>0</code> with a carry of <code>1</code> to
           the next higher bit)</li>
       </ul>
 
@@ -146,7 +146,7 @@
     </section>
 
     <section id="or" class="topic">
-      <h2>Bitwise <code>OR</code></h2>
+      <h2>Bitwise <code>OR</code> (<code>|</code>)</h2>
 
       <p>The bitwise <code>OR</code> operation compares each bit of two binary numbers and returns a new binary number.
         The
@@ -158,10 +158,10 @@
       <p>Here are the rules for the bitwise <code>OR</code> operation:</p>
 
       <ul>
-        <li><code>0</code> OR <code>0</code> = <code>0</code></li>
-        <li><code>0</code> OR <code>1</code> = <code>1</code></li>
-        <li><code>1</code> OR <code>0</code> = <code>1</code></li>
-        <li><code>1</code> OR <code>1</code> = <code>1</code></li>
+        <li><code>0 | 0</code> = <code>0</code></li>
+        <li><code>0 | 1</code> = <code>1</code></li>
+        <li><code>1 | 0</code> = <code>1</code></li>
+        <li><code>1 | 1</code> = <code>1</code></li>
       </ul>
 
       <section class="showcase grid-center">
@@ -170,7 +170,7 @@
     </section>
 
     <section id="and" class="topic">
-      <h2>Bitwise <code>AND</code></h2>
+      <h2>Bitwise <code>AND</code> (<code>&</code>)</h2>
 
       <p>The bitwise <code>AND</code> operation compares each bit of two binary numbers and returns a new binary
         number.
@@ -182,10 +182,10 @@
       <p>Here are the rules for the bitwise <code>AND</code> operation:</p>
 
       <ul>
-        <li><code>0</code> AND <code>0</code> = <code>0</code></li>
-        <li><code>0</code> AND <code>1</code> = <code>0</code></li>
-        <li><code>1</code> AND <code>0</code> = <code>0</code></li>
-        <li><code>1</code> AND <code>1</code> = <code>1</code></li>
+        <li><code>0 & 0</code> = <code>0</code></li>
+        <li><code>0 & 1</code> = <code>0</code></li>
+        <li><code>1 & 0</code> = <code>0</code></li>
+        <li><code>1 & 1</code> = <code>1</code></li>
       </ul>
 
       <section class="showcase grid-center">
@@ -194,7 +194,7 @@
     </section>
 
     <section id="xor" class="topic">
-      <h2>Bitwise <code>XOR</code></h2>
+      <h2>Bitwise <code>XOR</code> (<code>^</code>)</h2>
 
       <p>The bitwise <code>XOR</code> (exclusive OR) operation compares each bit of two binary numbers and returns a new
         binary number. The resulting bit is <code>1</code> if the corresponding bits in the input numbers are
@@ -205,10 +205,10 @@
       <p>Here are the rules for the bitwise <code>XOR</code> operation:</p>
 
       <ul>
-        <li><code>0</code> XOR <code>0</code> = <code>0</code></li>
-        <li><code>0</code> XOR <code>1</code> = <code>1</code></li>
-        <li><code>1</code> XOR <code>0</code> = <code>1</code></li>
-        <li><code>1</code> XOR <code>1</code> = <code>0</code></li>
+        <li><code>0 ^ 0</code> = <code>0</code></li>
+        <li><code>0 ^ 1</code> = <code>1</code></li>
+        <li><code>1 ^ 0</code> = <code>1</code></li>
+        <li><code>1 ^ 1</code> = <code>0</code></li>
       </ul>
 
       <section class="showcase grid-center">
@@ -217,7 +217,7 @@
     </section>
 
     <section id="not" class="topic">
-      <h2>Bitwise <code>NOT</code></h2>
+      <h2>Bitwise <code>NOT</code> (<code>~</code>)</h2>
 
       <p>The bitwise <code>NOT</code> (<code>~</code>) operation, also known as the bitwise complement, takes a single
         binary number and
