@@ -56,6 +56,19 @@ export class BitwiseOperation extends LitElement {
             case "ADD":
                 this.result = this.operand1 + this.operand2;
                 break;
+            case "AND":
+                this.result = this.operand1 & this.operand2;
+                break;
+            case "OR":
+                this.result = this.operand1 | this.operand2;
+                break;
+            case "XOR":
+                this.result = this.operand1 ^ this.operand2;
+                break;
+            case "NOT":
+                this.result = ~this.operand1;
+                break;
+            // TODO: Handle Shift Operations (Left Shift and Right Shift)
             default:
                 this.result = 0;
         }
