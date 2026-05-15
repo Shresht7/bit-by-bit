@@ -5,6 +5,7 @@ import "./components/expanded-number.ts";
 import "./components/svg-switch.ts";
 import "./components/number-counter.ts";
 import "./components/bitwise-operation.ts";
+import "./components/bitwise-not.ts";
 
 // Modules
 import "./modules/scroll.ts"
