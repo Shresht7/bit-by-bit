@@ -149,13 +149,13 @@ export class BitwiseOperation extends LitElement {
             case "ADD":
                 return "+";
             case "AND":
-                return "AND";
+                return "&";
             case "OR":
-                return "OR";
+                return "|";
             case "XOR":
-                return "XOR";
+                return "^";
             case "NOT":
-                return "NOT";
+                return "~";
             default:
                 return "";
         }
