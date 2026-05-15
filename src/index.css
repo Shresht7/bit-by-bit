@@ -10,6 +10,11 @@ body {
   grid-template-columns: auto 1fr auto;
 }
 
+::selection {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
 header {
   display: grid;
   place-content: center;
