@@ -152,7 +152,8 @@
         The
         resulting bit is <code>1</code> if at least one of the corresponding bits in the input numbers is
         <code>1</code>;
-        otherwise, it returns <code>0</code>.</p>
+        otherwise, it returns <code>0</code>.
+      </p>
 
       <p>Here are the rules for the bitwise <code>OR</code> operation:</p>
 
@@ -166,8 +167,32 @@
       <section class="showcase">
         <bitwise-operation operator="OR" operand1="10" operand2="5"></bitwise-operation>
       </section>
-
     </section>
+
+    <section id="and" class="topic">
+      <h2>Bitwise <code>AND</code></h2>
+
+      <p>The bitwise <code>AND</code> operation compares each bit of two binary numbers and returns a new binary
+        number.
+        The resulting bit is <code>1</code> only if both corresponding bits in the input numbers are
+        <code>1</code>;
+        otherwise, it returns <code>0</code>.
+      </p>
+
+      <p>Here are the rules for the bitwise <code>AND</code> operation:</p>
+
+      <ul>
+        <li><code>0</code> AND <code>0</code> = <code>0</code></li>
+        <li><code>0</code> AND <code>1</code> = <code>0</code></li>
+        <li><code>1</code> AND <code>0</code> = <code>0</code></li>
+        <li><code>1</code> AND <code>1</code> = <code>1</code></li>
+      </ul>
+
+      <section class="showcase">
+        <bitwise-operation operator="AND" operand1="10" operand2="5"></bitwise-operation>
+      </section>
+    </section>
+
 
   </main>
 
