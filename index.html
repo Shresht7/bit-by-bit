@@ -237,6 +237,25 @@
       </section>
     </section>
 
+    <section id="bitwise-left-shift" class="topic">
+      <h2>Bitwise <code>Left-Shift</code> (<code>&lt;&lt;</code>)</h2>
+
+      <p>The bitwise left-shift operation (<code>&lt;&lt;</code>) shifts all bits in a binary number to the left by a
+        specified number of positions. The vacated rightmost bits are filled with <code>0</code>s. This operation is
+        equivalent to multiplying the number by 2 for each shift position.</p>
+
+      <p>Here are the rules for the bitwise left-shift operation:</p>
+      <ul>
+        <li><code>101 &lt;&lt; 1</code> = <code>1010</code> <code>5 &lt;&lt; 1</code> = <code>10</code></li>
+        <li><code>101 &lt;&lt; 2</code> = <code>10100</code> <code>5 &lt;&lt; 2</code> = <code>20</code></li>
+        <li><code>101 &lt;&lt; 3</code> = <code>101000</code> <code>5 &lt;&lt; 3</code> = <code>40</code></li>
+      </ul>
+
+      <section class="showcase grid-center" style="gap: 5rem;">
+        <bitwise-shift operator="LEFT" operand="5" shift="1"></bitwise-shift>
+      </section>
+    </section>
+
   </main>
 
   <!-- SIDEBAR -->
