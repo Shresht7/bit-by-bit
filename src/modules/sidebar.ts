@@ -10,7 +10,7 @@ document.querySelectorAll("section.topic").forEach((section, idx) => {
         link.href = `#${sectionId}`;
 
         const span = document.createElement("span");
-        span.textContent = (idx + 1).toString(2).padStart(3, "0") + "::";
+        span.textContent = (idx + 1).toString(2).padStart(4, "0") + "::";
         span.classList.add("color-subdued");
         link.appendChild(span);
         const title = document.createTextNode(sectionTitle);

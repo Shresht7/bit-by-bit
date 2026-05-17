@@ -24,7 +24,7 @@ export class BitCell extends LitElement {
     /** Increments the value of the bit cell by a specified amount (default: 1) */
     increment(by: number = 1) {
         if (!this.interactive) { return }
-        if (this.value >= Number.MAX_SAFE_INTEGER) { return }
+        if (this.value >= this.base - 1) { return }
         const prev = this.value;
         this.value = this.value + by;
         this.dispatchEvent(new BitUpdateEvent(this.value, prev));
