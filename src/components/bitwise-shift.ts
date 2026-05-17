@@ -103,7 +103,7 @@ export class BitwiseShift extends LitElement {
                 <div class="operand-value">${this.operand}</div>
                 <bit-array class="operand" .value=${this.operand} @value-changed=${this.updateValue}></bit-array>
                 <div class="operator">${this.renderOperator()}</div>
-                <number-input class="shift" .value=${this.shift} @change=${this.updateShift}></number-input>
+                <number-input class="shift" .value=${this.shift} @number-input-change=${this.updateShift}></number-input>
                 <div class="separator"></div>
                 <div class="result-value">${this.result}</div>
                 <bit-array class="result" .value=${this.result} noninteractive></bit-array>

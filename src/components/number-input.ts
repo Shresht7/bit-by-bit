@@ -51,7 +51,6 @@ export class NumberInput extends LitElement {
                 .min=${this.min}
                 .max=${this.max}
                 style="width: ${width}ch;"
-                @input=${this.handleChange}
                 @change=${this.handleChange}
                 @mousewheel=${this.handleWheel}
             />
@@ -60,7 +59,7 @@ export class NumberInput extends LitElement {
 }
 
 export class NumberInputEvent extends CustomEvent<{ value: number }> {
-    static type = "change";
+    static type = "number-input-change";
 
     constructor(value: number) {
         super(NumberInputEvent.type, { detail: { value }, bubbles: true, composed: true });
