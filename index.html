@@ -115,6 +115,26 @@
         </div>
       </section>
 
+      <section id="addition" class="topic">
+        <h3>Binary Addition (<code>+</code>)</h3>
+        <p>Binary addition follows the same principles as decimal addition, but it only involves: <code>0</code> and
+          <code>1</code>.
+        </p>
+        <p>When adding two bits, the possible combinations are:</p>
+
+        <ul>
+          <li><code>0 + 0</code> = <code>0</code></li>
+          <li><code>0 + 1</code> = <code>1</code></li>
+          <li><code>1 + 0</code> = <code>1</code></li>
+          <li><code>1 + 1</code> = <code>10</code> (which is <code>0</code> with a carry of <code>1</code> to
+            the next higher bit)</li>
+        </ul>
+
+        <section class="showcase grid-center">
+          <binary-operation operator="ADD" operand1="10" operand2="5"></binary-operation>
+        </section>
+      </section>
+
       <!-- TODO: Decimal <-> Binary Conversion -->
 
       <!-- TODO: Other Number Formats like Octal and HexaDecimal (Base 16) -->
@@ -125,23 +145,27 @@
 
     </section>
 
-    <section id="addition" class="topic">
-      <h2>Bitwise Addition (<code>+</code>)</h2>
-      <p>Binary addition follows the same principles as decimal addition, but it only involves: <code>0</code> and
-        <code>1</code>.
+    <section id="and" class="topic">
+      <h2>Bitwise <code>AND</code> (<code>&</code>)</h2>
+
+      <p>The bitwise <code>AND</code> operation compares each bit of two binary numbers and returns a new binary
+        number.
+        The resulting bit is <code>1</code> only if both corresponding bits in the input numbers are
+        <code>1</code>;
+        otherwise, it returns <code>0</code>.
       </p>
-      <p>When adding two bits, the possible combinations are:</p>
+
+      <p>Here are the rules for the bitwise <code>AND</code> operation:</p>
 
       <ul>
-        <li><code>0 + 0</code> = <code>0</code></li>
-        <li><code>0 + 1</code> = <code>1</code></li>
-        <li><code>1 + 0</code> = <code>1</code></li>
-        <li><code>1 + 1</code> = <code>10</code> (which is <code>0</code> with a carry of <code>1</code> to
-          the next higher bit)</li>
+        <li><code>0 & 0</code> = <code>0</code></li>
+        <li><code>0 & 1</code> = <code>0</code></li>
+        <li><code>1 & 0</code> = <code>0</code></li>
+        <li><code>1 & 1</code> = <code>1</code></li>
       </ul>
 
       <section class="showcase grid-center">
-        <binary-operation operator="ADD" operand1="10" operand2="5"></binary-operation>
+        <binary-operation operator="AND" operand1="10" operand2="5"></binary-operation>
       </section>
     </section>
 
@@ -166,30 +190,6 @@
 
       <section class="showcase grid-center">
         <binary-operation operator="OR" operand1="10" operand2="5"></binary-operation>
-      </section>
-    </section>
-
-    <section id="and" class="topic">
-      <h2>Bitwise <code>AND</code> (<code>&</code>)</h2>
-
-      <p>The bitwise <code>AND</code> operation compares each bit of two binary numbers and returns a new binary
-        number.
-        The resulting bit is <code>1</code> only if both corresponding bits in the input numbers are
-        <code>1</code>;
-        otherwise, it returns <code>0</code>.
-      </p>
-
-      <p>Here are the rules for the bitwise <code>AND</code> operation:</p>
-
-      <ul>
-        <li><code>0 & 0</code> = <code>0</code></li>
-        <li><code>0 & 1</code> = <code>0</code></li>
-        <li><code>1 & 0</code> = <code>0</code></li>
-        <li><code>1 & 1</code> = <code>1</code></li>
-      </ul>
-
-      <section class="showcase grid-center">
-        <binary-operation operator="AND" operand1="10" operand2="5"></binary-operation>
       </section>
     </section>
 
