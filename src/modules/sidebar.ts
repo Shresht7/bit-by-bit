@@ -1,22 +1,43 @@
-const sidebar = document.querySelector("#sidebar nav ul") as HTMLUListElement;
+// Library 
+import { outline, type OutlineEntry } from "./outline";
 
-document.querySelectorAll("section.topic").forEach((section, idx) => {
-    const sectionId = section.getAttribute("id");
-    const sectionTitle = section.querySelector("h2")?.textContent || "Untitled Section";
-    if (sectionId) {
-        const listItem = document.createElement("li");
+const sidebar = document.querySelector("#sidebar nav") as HTMLElement;
 
-        const link = document.createElement("a");
-        link.href = `#${sectionId}`;
+function createOutlineList(entries: OutlineEntry[]) {
+    const list = document.createElement("ul");
 
-        const span = document.createElement("span");
-        span.textContent = (idx + 1).toString(2).padStart(4, "0") + "::";
-        span.classList.add("color-subdued");
-        link.appendChild(span);
-        const title = document.createTextNode(sectionTitle);
-        link.appendChild(title);
-
-        listItem.appendChild(link);
-        sidebar.appendChild(listItem);
+    const padLength = entries.length.toString(2).length; // Calculate the number of bits needed to represent the number of entries, for padding the binary index
+    for (let i = 0; i < entries.length; i++) {
+        const listItem = createOutlineListItem(i, entries[i], padLength);
+        list.appendChild(listItem);
     }
-});
+
+    return list;
+}
+
+function createOutlineListItem(index: number, entry: OutlineEntry, padLength: number = 4): HTMLLIElement {
+    const listItem = document.createElement("li");
+    listItem.setAttribute("data-level", entry.level.toString());
+
+    const link = document.createElement("a");
+    link.href = `#${entry.id}`;
+    link.textContent = entry.title || entry.id || "Untitled Section";
+
+    const span = document.createElement("span");
+    span.textContent = entry.level === 2
+        ? index.toString(2).padStart(padLength, "0") + "::"
+        : "\\\\ "
+    span.classList.add("color-subdued");
+    link.prepend(span);
+
+    listItem.appendChild(link);
+
+    if (entry.children.length > 0) {
+        const childList = createOutlineList(entry.children);
+        listItem.appendChild(childList);
+    }
+
+    return listItem;
+}
+
+sidebar.replaceChildren(createOutlineList(outline.entries));
