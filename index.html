@@ -126,33 +126,165 @@
     </section>
 
     <section id="addition" class="topic">
-      <h2>Addition</h2>
-      <p>Binary addition follows the same principles as decimal addition, but it only involves two digits: 0 and 1.</p>
+      <h2>Bitwise Addition (<code>+</code>)</h2>
+      <p>Binary addition follows the same principles as decimal addition, but it only involves: <code>0</code> and
+        <code>1</code>.
+      </p>
       <p>When adding two bits, the possible combinations are:</p>
+
       <ul>
-        <li>0 + 0 = 0</li>
-        <li>0 + 1 = 1</li>
-        <li>1 + 0 = 1</li>
-        <li>1 + 1 = 10 (which is 0 with a carry of 1 to the next higher bit)</li>
+        <li><code>0 + 0</code> = <code>0</code></li>
+        <li><code>0 + 1</code> = <code>1</code></li>
+        <li><code>1 + 0</code> = <code>1</code></li>
+        <li><code>1 + 1</code> = <code>10</code> (which is <code>0</code> with a carry of <code>1</code> to
+          the next higher bit)</li>
       </ul>
 
-      <section class="showcase">
-        <div class="flex flex-column" style="gap: 2rem;">
-          <bit-array value="5" base="2" length="4"></bit-array>
-          <bit-array value="10" base="2" length="4"></bit-array>
-          <hr style="width: 100%">
-          <bit-array value="15" base="2" length="4"></bit-array>
-        </div>
+      <section class="showcase grid-center">
+        <bitwise-operation operator="ADD" operand1="10" operand2="5"></bitwise-operation>
       </section>
+    </section>
+
+    <section id="or" class="topic">
+      <h2>Bitwise <code>OR</code> (<code>|</code>)</h2>
+
+      <p>The bitwise <code>OR</code> operation compares each bit of two binary numbers and returns a new binary number.
+        The
+        resulting bit is <code>1</code> if at least one of the corresponding bits in the input numbers is
+        <code>1</code>;
+        otherwise, it returns <code>0</code>.
+      </p>
+
+      <p>Here are the rules for the bitwise <code>OR</code> operation:</p>
+
+      <ul>
+        <li><code>0 | 0</code> = <code>0</code></li>
+        <li><code>0 | 1</code> = <code>1</code></li>
+        <li><code>1 | 0</code> = <code>1</code></li>
+        <li><code>1 | 1</code> = <code>1</code></li>
+      </ul>
+
+      <section class="showcase grid-center">
+        <bitwise-operation operator="OR" operand1="10" operand2="5"></bitwise-operation>
+      </section>
+    </section>
+
+    <section id="and" class="topic">
+      <h2>Bitwise <code>AND</code> (<code>&</code>)</h2>
+
+      <p>The bitwise <code>AND</code> operation compares each bit of two binary numbers and returns a new binary
+        number.
+        The resulting bit is <code>1</code> only if both corresponding bits in the input numbers are
+        <code>1</code>;
+        otherwise, it returns <code>0</code>.
+      </p>
+
+      <p>Here are the rules for the bitwise <code>AND</code> operation:</p>
+
+      <ul>
+        <li><code>0 & 0</code> = <code>0</code></li>
+        <li><code>0 & 1</code> = <code>0</code></li>
+        <li><code>1 & 0</code> = <code>0</code></li>
+        <li><code>1 & 1</code> = <code>1</code></li>
+      </ul>
+
+      <section class="showcase grid-center">
+        <bitwise-operation operator="AND" operand1="10" operand2="5"></bitwise-operation>
+      </section>
+    </section>
+
+    <section id="xor" class="topic">
+      <h2>Bitwise <code>XOR</code> (<code>^</code>)</h2>
+
+      <p>The bitwise <code>XOR</code> (exclusive OR) operation compares each bit of two binary numbers and returns a new
+        binary number. The resulting bit is <code>1</code> if the corresponding bits in the input numbers are
+        different (i.e., one is <code>1</code> and the other is <code>0</code>); otherwise, it returns
+        <code>0</code>.
+      </p>
+
+      <p>Here are the rules for the bitwise <code>XOR</code> operation:</p>
+
+      <ul>
+        <li><code>0 ^ 0</code> = <code>0</code></li>
+        <li><code>0 ^ 1</code> = <code>1</code></li>
+        <li><code>1 ^ 0</code> = <code>1</code></li>
+        <li><code>1 ^ 1</code> = <code>0</code></li>
+      </ul>
+
+      <section class="showcase grid-center">
+        <bitwise-operation operator="XOR" operand1="10" operand2="5"></bitwise-operation>
+      </section>
+    </section>
+
+    <section id="bitwise-not" class="topic">
+      <h2>Bitwise <code>NOT</code> (<code>~</code>)</h2>
+
+      <p>The bitwise <code>NOT</code> (<code>~</code>) operation, also known as the bitwise complement, takes a single
+        binary number and
+        inverts all of its bits. The resulting bit is <code>1</code> if the original bit is <code>0</code>, and
+        <code>0</code> if the original bit is <code>1</code>.
+      </p>
+
+      <p>Here are the rules for the bitwise <code>NOT</code> operation:</p>
+
+      <ul>
+        <li><code>~ 0</code> = <code>1</code></li>
+        <li><code>~ 1</code> = <code>0</code></li>
+      </ul>
+
+      <section class="showcase grid-center">
+        <bitwise-not operand="100"></bitwise-not>
+      </section>
+    </section>
+
+    <section id="bitwise-left-shift" class="topic">
+      <h2>Bitwise <code>Left-Shift</code> (<code>&lt;&lt;</code>)</h2>
+
+      <p>The bitwise left-shift operation (<code>&lt;&lt;</code>) shifts all bits in a binary number to the left by a
+        specified number of positions. The vacated rightmost bits are filled with <code>0</code>s. This operation is
+        equivalent to multiplying the number by 2 for each shift position.</p>
+
+      <p>Here are the rules for the bitwise left-shift operation:</p>
+      <ul>
+        <li><code>101 &lt;&lt; 1</code> = <code>1010</code> <code>5 &lt;&lt; 1</code> = <code>10</code></li>
+        <li><code>101 &lt;&lt; 2</code> = <code>10100</code> <code>5 &lt;&lt; 2</code> = <code>20</code></li>
+        <li><code>101 &lt;&lt; 3</code> = <code>101000</code> <code>5 &lt;&lt; 3</code> = <code>40</code></li>
+      </ul>
+
+      <section class="showcase grid-center" style="gap: 5rem;">
+        <bitwise-shift operator="LEFT" operand="5" shift="1"></bitwise-shift>
+      </section>
+    </section>
+
+    <section id="bitwise-right-shift" class="topic">
+      <h2>Bitwise <code>Right-Shift</code> (<code>&gt;&gt;</code>)</h2>
+
+      <p>The bitwise right-shift operation (<code>&gt;&gt;</code>) shifts all bits in a binary number to the right by a
+        specified number of positions. The vacated leftmost bits are filled with <code>0</code>s for unsigned numbers,
+        and with the sign bit (the most significant bit) for signed numbers. This operation is equivalent to dividing
+        the number by 2 for each shift position, discarding any remainders.</p>
+
+      <p>Here are the rules for the bitwise right-shift operation:</p>
+      <ul>
+        <li><code>101 &gt;&gt; 1</code> = <code>10</code> <code>5 &gt;&gt; 1</code> = <code>2</code></li>
+        <li><code>101 &gt;&gt; 2</code> = <code>1</code> <code>5 &gt;&gt; 2</code> = <code>1</code></li>
+        <li><code>101 &gt;&gt; 3</code> = <code>0</code> <code>5 &gt;&gt; 3</code> = <code>0</code></li>
+      </ul>
+
+      <section class="showcase grid-center" style="gap: 5rem;">
+        <bitwise-shift operator="RIGHT" operand="174" shift="1"></bitwise-shift>
+      </section>
+
+    </section>
 
   </main>
 
+  <!-- SIDEBAR -->
   <aside>
     <div id="sidebar" class="flex flex-column" style="--justify-content: space-between; --align-items: flex-start;">
 
       <nav>
-        <ul>
-        </ul>
+        <ul></ul>
       </nav>
 
       <section class="bottom">
