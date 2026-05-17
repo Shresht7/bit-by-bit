@@ -22,6 +22,8 @@ export class Outline {
 
     /** Builds the outline from the given sections in the document. */
     build(sections: NodeListOf<HTMLElement>) {
+        this._entries = []; // Clear any existing entries before building a new outline
+
         /** A stack to keep track of the current hierarchy of sections as we build the outline. */
         const stack: OutlineEntry[] = [];
 
