@@ -5,6 +5,7 @@ import { customElement, property, state } from "lit/decorators.js";
 // Styles
 import { flex } from "../styles/lit.styles";
 import type { NumberInputEvent } from "./number-input";
+import type { ValueChangedEvent } from "./bit-array";
 
 export type BitwiseShiftOperator = "LEFT" | "RIGHT";
 
@@ -27,8 +28,8 @@ export class BitwiseShift extends LitElement {
         this.performOperation();
     }
 
-    updateValue() {
-        this.operand = Math.floor(this.operand);
+    updateValue(e: ValueChangedEvent) {
+        this.operand = Math.floor(e.detail.value);
         this.performOperation();
     }
 
