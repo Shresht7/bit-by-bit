@@ -15,7 +15,7 @@ import type { ValueChangedEvent } from "./bit-array";
  * The component supports the following binary operations: AND, OR, XOR, NOT, and ADD.
  */
 @customElement("binary-operation")
-export class BitwiseOperation extends LitElement {
+export class BinaryOperation extends LitElement {
 
     /** The first operand for the binary operation. */
     @property({ type: Number, reflect: true })
