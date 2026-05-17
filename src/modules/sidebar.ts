@@ -24,7 +24,9 @@ function createOutlineListItem(index: number, entry: OutlineEntry, padLength: nu
     link.textContent = entry.title || entry.id || "Untitled Section";
 
     const span = document.createElement("span");
-    span.textContent = index.toString(2).padStart(padLength, "0") + "::";
+    span.textContent = entry.level === 2
+        ? index.toString(2).padStart(padLength, "0") + "::"
+        : "\\\\ "
     span.classList.add("color-subdued");
     link.prepend(span);
 

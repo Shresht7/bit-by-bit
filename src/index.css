@@ -58,7 +58,7 @@ aside {
         width: 100%;
         text-decoration: none;
         color: inherit;
-        padding-inline: 0.75rem;
+        padding-inline: 0.5rem;
 
         &[href].active {
           font-weight: bold;
