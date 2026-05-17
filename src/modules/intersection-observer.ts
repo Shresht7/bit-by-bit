@@ -7,7 +7,9 @@ const sections = Array.from(document.querySelectorAll<HTMLElement>("section.topi
  */
 function setActiveLink(activeId: string) {
     document.querySelectorAll<HTMLAnchorElement>("nav a[href]").forEach(link => {
-        link.classList.toggle("active", link.getAttribute("href")?.endsWith(activeId) ?? false);
+        const href = link.getAttribute("href");
+        const linkSectionId = href?.startsWith("#") ? href.substring(1) : null;
+        link.classList.toggle("active", linkSectionId === activeId);
     });
 }
 
