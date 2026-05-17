@@ -27,7 +27,7 @@ header {
 
 aside {
   height: calc(100dvh - var(--header-height));
-  width: max(30ch, 20vw);
+  width: max(40ch, 20vw);
   grid-row: 2 / -1;
   grid-column: 1 / 2;
   position: sticky;
@@ -44,12 +44,14 @@ aside {
   nav ul {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.8rem;
+    gap: 0.15rem;
+    font-size: 0.9em;
 
     li {
       list-style: none;
       color: var(--color-text);
+      margin-left: 0.5rem;
+      padding-block: 0.15rem;
 
       a {
         display: block;
@@ -58,15 +60,17 @@ aside {
         color: inherit;
         padding-inline: 0.75rem;
 
+        &[href].active {
+          font-weight: bold;
+        }
+
         &:hover {
           text-decoration: none;
           background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
         }
       }
 
-      &:has(a[href].active) {
-        font-weight: bold;
-
+      &:has(>a[href].active) {
         position: relative;
 
         &::before {
