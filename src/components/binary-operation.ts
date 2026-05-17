@@ -1,7 +1,7 @@
 // Library
 import { LitElement, html, css } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
-import { bitwiseOperatorSymbol, performBitwiseOperation, type BitwiseOperator } from "../library/bitwise-operations";
+import { operatorSymbol, performBinaryOperation, type BinaryOperator } from "../library/operations";
 
 // Styles
 import { flex } from "../styles/lit.styles";
@@ -10,28 +10,28 @@ import { flex } from "../styles/lit.styles";
 import type { ValueChangedEvent } from "./bit-array";
 
 /**
- * A component that performs a specified bitwise operation on two operands and displays the result.
+ * A component that performs a specified binary operation on two operands and displays the result.
  * The operands and result are displayed as both binary (using {@link BitArray bit arrays}) and decimal values.
- * The component supports the following bitwise operations: AND, OR, XOR, NOT, and ADD.
+ * The component supports the following binary operations: AND, OR, XOR, NOT, and ADD.
  */
-@customElement("bitwise-operation")
+@customElement("binary-operation")
 export class BitwiseOperation extends LitElement {
 
-    /** The first operand for the bitwise operation. */
+    /** The first operand for the binary operation. */
     @property({ type: Number, reflect: true })
     operand1: number = 0;
 
-    /** The second operand for the bitwise operation. */
+    /** The second operand for the binary operation. */
     @property({ type: Number, reflect: true })
     operand2: number = 0;
 
-    /** The result of the bitwise operation. */
+    /** The result of the binary operation. */
     @state()
     result: number = 0;
 
-    /** The bitwise operator to apply. */
+    /** The binary operator to apply. */
     @property({ type: String, reflect: true })
-    operator: BitwiseOperator = "ADD";
+    operator: BinaryOperator = "AND";
 
     /** The length of the bit arrays. If not specified, it defaults to the minimum length required to represent the operands in binary. */
     @property({ type: Number, reflect: true })
@@ -62,10 +62,10 @@ export class BitwiseOperation extends LitElement {
         }
     }
 
-    /** Performs the bitwise operation based on the current operands and operator. */
+    /** Performs the binary operation based on the current operands and operator. */
     performOperation(e?: ValueChangedEvent) {
         if (e) { this.updateValues(e); }
-        this.result = performBitwiseOperation(this.operand1, this.operator, this.operand2);
+        this.result = performBinaryOperation(this.operand1, this.operator, this.operand2);
     }
 
     /** Styles for the component */
@@ -124,7 +124,7 @@ export class BitwiseOperation extends LitElement {
         }
     `];
 
-    /** Renders the component's template, displaying the operands and result of the bitwise operation. */
+    /** Renders the component's template, displaying the operands and result of the binary operation. */
     render() {
         return html /* html */`
             <div class="grid" @value-changed=${this.performOperation}>
@@ -132,7 +132,7 @@ export class BitwiseOperation extends LitElement {
                 <div class="value1">${this.operand1}</div>
                 <bit-array class="operand2" .value=${this.operand2} .length=${this.length}></bit-array>
                 <div class="value2">${this.operand2}</div>
-                <div class="operator">${bitwiseOperatorSymbol(this.operator)}</div>
+                <div class="operator">${operatorSymbol(this.operator)}</div>
                 <div class="separator"></div>
                 <bit-array class="result" .value=${this.result} noninteractive></bit-array>
                 <div class="valueRes">${this.result}</div>

@@ -4,7 +4,7 @@ import "./components/bit-array.ts";
 import "./components/expanded-number.ts";
 import "./components/svg-switch.ts";
 import "./components/number-counter.ts";
-import "./components/bitwise-operation.ts";
+import "./components/binary-operation.ts";
 import "./components/bitwise-not.ts";
 import "./components/bitwise-shift.ts";
 import "./components/number-input.ts";
