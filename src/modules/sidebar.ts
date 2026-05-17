@@ -1,7 +1,7 @@
 // Library 
 import { outline, type OutlineEntry } from "./outline";
 
-const sidebar = document.querySelector("#sidebar nav") as HTMLUListElement;
+const sidebar = document.querySelector("#sidebar nav") as HTMLElement;
 
 function createOutlineList(entries: OutlineEntry[]) {
     const list = document.createElement("ul");
