@@ -38,7 +38,7 @@ export class BitwiseShift extends LitElement {
     }
 
     performOperation() {
-        this.result = this.operand << this.shift;
+        this.result = this.operator === "LEFT" ? this.operand << this.shift : this.operand >> this.shift;
     }
 
     static styles = [flex, css /* css */`

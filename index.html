@@ -256,6 +256,27 @@
       </section>
     </section>
 
+    <section id="bitwise-right-shift" class="topic">
+      <h2>Bitwise <code>Right-Shift</code> (<code>&gt;&gt;</code>)</h2>
+
+      <p>The bitwise right-shift operation (<code>&gt;&gt;</code>) shifts all bits in a binary number to the right by a
+        specified number of positions. The vacated leftmost bits are filled with <code>0</code>s for unsigned numbers,
+        and with the sign bit (the most significant bit) for signed numbers. This operation is equivalent to dividing
+        the number by 2 for each shift position, discarding any remainders.</p>
+
+      <p>Here are the rules for the bitwise right-shift operation:</p>
+      <ul>
+        <li><code>101 &gt;&gt; 1</code> = <code>10</code> <code>5 &gt;&gt; 1</code> = <code>2</code></li>
+        <li><code>101 &gt;&gt; 2</code> = <code>1</code> <code>5 &gt;&gt; 2</code> = <code>1</code></li>
+        <li><code>101 &gt;&gt; 3</code> = <code>0</code> <code>5 &gt;&gt; 3</code> = <code>0</code></li>
+      </ul>
+
+      <section class="showcase grid-center" style="gap: 5rem;">
+        <bitwise-shift operator="RIGHT" operand="174" shift="1"></bitwise-shift>
+      </section>
+
+    </section>
+
   </main>
 
   <!-- SIDEBAR -->
