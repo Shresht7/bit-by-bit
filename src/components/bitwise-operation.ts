@@ -41,7 +41,7 @@ export class BitwiseOperation extends LitElement {
     determineLength() {
         if (this.length < 0) {
             const maxOperand = Math.max(this.operand1, this.operand2);
-            this.length = Math.ceil(Math.log2(maxOperand + 1));
+            this.length = Math.ceil(Math.log2(maxOperand + 1)) || 1; // Ensure at least 1 bit for the value 0
         }
     }
 
