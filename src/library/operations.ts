@@ -1,10 +1,8 @@
 /** The kind of bitwise operation */
-export type BitwiseOperator = "AND" | "OR" | "XOR" | "NOT";
+export type BitwiseOperator = "AND" | "OR" | "XOR" | "NOT" | "LHS" | "RHS";
 
 /** The kind of binary operation */
 export type BinaryOperator = "ADD" | BitwiseOperator;
-
-// TODO: Add Left-Shift and Right-Shift operations
 
 /**
  * Utility function to get the symbolic representation of a {@link BinaryOperator}.
@@ -23,6 +21,10 @@ export function operatorSymbol(operator: BinaryOperator): string {
             return "^";
         case "NOT":
             return "~";
+        case "LHS":
+            return "<<";
+        case "RHS":
+            return ">>";
         default:
             return "";
     }
@@ -47,6 +49,10 @@ export function performBinaryOperation(operand1: number, operator: BinaryOperato
             return operand1 ^ operand2;
         case "NOT":
             return ~operand1;
+        case "LHS":
+            return operand1 << operand2;
+        case "RHS":
+            return operand1 >> operand2;
         default:
             return 0;
     }
