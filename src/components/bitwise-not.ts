@@ -38,7 +38,7 @@ export class BitwiseNot extends LitElement {
     /** Determines the length of the bit array based on the operand if not explicitly specified. */
     determineLength() {
         if (this.length < 0) {
-            this.length = this.operand.toString(2).length;
+            this.length = this.operand.toString(2).length || 1;
         }
     }
 
