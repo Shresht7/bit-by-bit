@@ -24,9 +24,9 @@ export class BitwiseNot extends LitElement {
     @property({ type: Number, reflect: true })
     length: number = -1;
 
-    /** The result of the bitwise NOT operation, represented as a binary string. */
+    /** The result of the bitwise NOT operation */
     @state()
-    result: string = "";
+    result: number = 0;
 
     /** Lifecycle method called when the component is added to the DOM. Determines the length of the bit array and performs the initial operation. */
     connectedCallback(): void {
@@ -51,8 +51,9 @@ export class BitwiseNot extends LitElement {
 
     /** Performs the bitwise NOT operation and updates the result. */
     performOperation() {
+        // Not using the ~ operator to avoid negative numbers and the whole shebang
         const bitArray = this.operand.toString(2).padStart(this.length, "0").split('');
-        this.result = bitArray.map(bit => bit === '0' ? '1' : '0').join('');
+        this.result = parseInt(bitArray.map(bit => bit === '0' ? '1' : '0').join(''), 2);
     }
 
     // TODO: Extract common styles out into a shared file
@@ -96,7 +97,7 @@ export class BitwiseNot extends LitElement {
                 <div class="flex flex-row">
                     <div class="operator">=</div>
                     <bit-array class="result" .value=${this.result} .length=${this.length} noninteractive></bit-array>
-                    <div class="value">${parseInt(this.result, 2)}</div>
+                    <div class="value">${this.result}</div>
                 </div>
             
             </div>
