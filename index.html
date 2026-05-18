@@ -73,7 +73,43 @@
     <section id="numbers" class="topic">
       <h2>Number Systems</h2>
 
-      <!-- TODO: Positional Notation, Radix / Base Concept, Place Value -->
+      <p>Number systems are ways to represent and express numbers using a consistent set of symbols and rules.</p>
+
+      <section id="positional-notation" class="topic subtopic">
+        <h3>Positional Notation</h3>
+
+        <p>A number is a collection of symbols arranged in a specific order to represent a quantity. The position of
+          each
+          symbol in the arrangement determines its value.</p>
+
+      </section>
+
+
+      <section id="base/radix" class="topic subtopic">
+        <h3>Base/Radix</h3>
+
+        <p>In decimal, each digit's value is determined by its position, with the rightmost digit representing units,
+          the
+          next representing tens, then hundreds, and so on. This is called the place-value.</p>
+
+        <p>Notice how each place-value is 10 times the value of the place to its right. The place-value of a position is
+          determined by the power of 10 associated with that position. Here, 10 is the <strong>base</strong> value of
+          the
+          decimal system; and the place-value is determined by raising the base to the power of the position index
+          (counting from right-to-left).</p>
+
+        <p>Binary number system also follows the same logic, but with a base of 2 instead of 10. Each place-value is 2
+          times the value of the place to its right.</p>
+
+        <p>In general, a number system can have any positive integer as its base. The base determines the number of
+          unique
+          symbols used to represent numbers and the place-value of each position.</p>
+      </section>
+
+      <p>The left-most symbol in a number has the highest place-value and is considered to be the most-significant
+        symbol; whereas the right-most symbol has the lowest place-value and is considered to be the
+        least-significant symbol.</p>
+
 
       <section id="decimal-system" class="topic subtopic">
         <h3>Learning to Count in Decimal</h3>
@@ -103,25 +139,82 @@
         </div>
 
         <number-counter value="0" base="2"></number-counter>
+
+        <p>In the binary system, numbers are represented using only two symbols: 0 and 1. Each digit in a binary number
+          is
+          called a <strong>bit</strong>, and the value of each bit is determined by its position in the number.</p>
+        <p>The rightmost bit (least significant bit) has a value of 1, the next bit to the left has a value of 2, then
+          4,
+          8, and so on, doubling with each position.</p>
+
+        <section class="showcase">
+          <div class="flex flex-column" style="gap: 3rem;">
+            <expanded-number value="125" base="10" length="3" show-breakdown
+              data-sync-group="numbers"></expanded-number>
+            <expanded-number value="125" show-breakdown data-sync-group="numbers"></expanded-number>
+          </div>
+        </section>
       </section>
 
-      <p>In the binary system, numbers are represented using only two symbols: 0 and 1. Each digit in a binary number is
-        called a <strong>bit</strong>, and the value of each bit is determined by its position in the number.</p>
-      <p>The rightmost bit (least significant bit) has a value of 1, the next bit to the left has a value of 2, then 4,
-        8, and so on, doubling with each position.</p>
+      <section id="binary-decimal-conversion" class="topic">
+        <h3>Binary &hArr; Decimal Conversion</h3>
 
-      <section class="showcase">
-        <div class="flex flex-column" style="gap: 3rem;">
-          <expanded-number value="125" base="10" length="3" show-breakdown data-sync-group="numbers"></expanded-number>
-          <expanded-number value="125" show-breakdown data-sync-group="numbers"></expanded-number>
+        <p>To convert a binary number to decimal, you can use the weighted sum method. Each bit in the binary number is
+          multiplied by its corresponding power of 2, and the results are summed to get the decimal equivalent.</p>
+
+        <p>For example, to convert the binary number <code>11101101</code> to decimal:</p>
+
+        <section class="showcase">
+          <expanded-number value="237" show-breakdown></expanded-number>
+        </section>
+
+        <p>To convert a decimal number to binary, you can use the repeated division method. Divide the decimal number by
+          2 and keep track of the remainders. The binary equivalent is obtained by reading the remainders in reverse
+          order.</p>
+
+        <p>For example, to convert the decimal number <code>13</code> to binary:</p>
+
+        <section class="showcase">
+          <!-- TODO: Repeated Division Interactive Example -->
+        </section>
+
+      </section>
+
+      <section id="bit-array" class="topic">
+        <h3>Bit Arrays</h3>
+
+        <section id="bit-width" class="topic">
+          <h4>Bit Width</h4>
+          <p>Bit width refers to the number of bits used to represent a value in a computer system. It determines the
+            range
+            of values that can be represented and the amount of memory required to store those values.</p>
+        </section>
+
+        <section id="msb" class="topic">
+          <h4>Most Significant Bit (MSB)</h4>
+
+          <p>In a binary number, the Most Significant Bit (MSB) is the bit with the highest place value, located at the
+            leftmost position.</p>
+        </section>
+
+        <section id="lsb" class="topic">
+          <h4>Least Significant Bit (LSB)</h4>
+
+          <p>In a binary number, the Least Significant Bit (LSB) is the bit with the lowest place value, located at the
+            rightmost position.</p>
+        </section>
+
+        <section class="showcase">
+          <expanded-number value="236" show-breakdown show-significant-bits show-bit-width noninteractive>
+          </expanded-number>
+        </section>
         </div>
-      </section>
+        <!-- TODO: Showcase MSB and LSB -->
+        <!-- TODO: Bit Width, Most Significant Bit (MSB) and Least Significant Bit (LSB) -->
 
-      <!-- TODO: Bit Width, Most Significant Bit (MSB) and Least Significant Bit (LSB) -->
+      </section>
 
       <!-- TODO: Negative Numbers. One's Complement and Two's Complement -->
-
-      <!-- TODO: Decimal <-> Binary Conversion. Repeated division and weighted-sum -->
 
       <!-- TODO: Other Number Formats like Octal and HexaDecimal (Base 16), grouping bits, when and why to use -->
 
