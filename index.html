@@ -73,7 +73,43 @@
     <section id="numbers" class="topic">
       <h2>Number Systems</h2>
 
-      <!-- TODO: Positional Notation, Radix / Base Concept, Place Value -->
+      <p>Number systems are ways to represent and express numbers using a consistent set of symbols and rules.</p>
+
+      <section id="positional-notation" class="topic subtopic">
+        <h3>Positional Notation</h3>
+
+        <p>A number is a collection of symbols arranged in a specific order to represent a quantity. The position of
+          each
+          symbol in the arrangement determines its value.</p>
+
+      </section>
+
+
+      <section id="base/radix" class="topic subtopic">
+        <h3>Base/Radix</h3>
+
+        <p>In decimal, each digit's value is determined by its position, with the rightmost digit representing units,
+          the
+          next representing tens, then hundreds, and so on. This is called the place-value.</p>
+
+        <p>Notice how each place-value is 10 times the value of the place to its right. The place-value of a position is
+          determined by the power of 10 associated with that position. Here, 10 is the <strong>base</strong> value of
+          the
+          decimal system; and the place-value is determined by raising the base to the power of the position index
+          (counting from right-to-left).</p>
+
+        <p>Binary number system also follows the same logic, but with a base of 2 instead of 10. Each place-value is 2
+          times the value of the place to its right.</p>
+
+        <p>In general, a number system can have any positive integer as its base. The base determines the number of
+          unique
+          symbols used to represent numbers and the place-value of each position.</p>
+      </section>
+
+      <p>The left-most symbol in a number has the highest place-value and is considered to be the most-significant
+        symbol; whereas the right-most symbol has the lowest place-value and is considered to be the
+        least-significant symbol.</p>
+
 
       <section id="decimal-system" class="topic subtopic">
         <h3>Learning to Count in Decimal</h3>
@@ -144,7 +180,40 @@
 
       </section>
 
-      <!-- TODO: Bit Width, Most Significant Bit (MSB) and Least Significant Bit (LSB) -->
+      <section id="bit-array" class="topic">
+        <h3>Bit Arrays</h3>
+
+        <section id="bit-width" class="topic">
+          <h4>Bit Width</h4>
+          <p>Bit width refers to the number of bits used to represent a value in a computer system. It determines the
+            range
+            of values that can be represented and the amount of memory required to store those values.</p>
+        </section>
+
+        <section id="msb" class="topic">
+          <h4>Most Significant Bit (MSB)</h4>
+
+          <p>In a binary number, the Most Significant Bit (MSB) is the bit with the highest place value, located at the
+            leftmost position.</p>
+        </section>
+
+        <section id="lsb" class="topic">
+          <h4>Least Significant Bit (LSB)</h4>
+
+          <p>In a binary number, the Least Significant Bit (LSB) is the bit with the lowest place value, located at the
+            rightmost position.</p>
+        </section>
+
+        <section class="showcase">
+          <expanded-number value="236" show-breakdown show-significant-bits show-bit-width noninteractive>
+          </expanded-number>
+        </section>
+        </div>
+        </div>
+        <!-- TODO: Showcase MSB and LSB -->
+        <!-- TODO: Bit Width, Most Significant Bit (MSB) and Least Significant Bit (LSB) -->
+
+      </section>
 
       <!-- TODO: Negative Numbers. One's Complement and Two's Complement -->
 
