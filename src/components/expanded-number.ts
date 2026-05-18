@@ -109,7 +109,7 @@ export class ExpandedNumber extends BitArray {
     renderBitWidth() {
         if (!this.showBitWidth) return null;
 
-        const bitWidth = this.value.toString(2).length
+        const bitWidth = this.value.toString(2).length;
 
         return html /* html */ `
             <div class="bit-width">${bitWidth}-bit</div>
