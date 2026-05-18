@@ -15,6 +15,9 @@ export class ExpandedNumber extends BitArray {
     @property({ type: Boolean, attribute: 'hide-value', reflect: true })
     hideValue = false;
 
+    @property({ type: Boolean, attribute: 'show-significant-bits', reflect: true })
+    showSignificantBits = false;
+
     static styles: CSSResult[] = [...super.styles, css /* css */ `
         span {
             font-family: var(--font-family-code);
@@ -53,7 +56,8 @@ export class ExpandedNumber extends BitArray {
         if (!this.showBreakdown) return null;
         return html /* html */ `
             <span class=${part === 0 ? "grayed-out" : ""}>${this.base}<sup>${length - idx - 1}</sup></span>
-            <span class=${part === 0 ? "grayed-out" : ""}>${this.base !== 2 ? `${part}×` : ""}${this.base ** (length - idx - 1)}</span>            
+            <span class=${part === 0 ? "grayed-out" : ""}>${this.base !== 2 ? `${part}×` : ""}${this.base ** (length - idx - 1)}</span>     
+            ${this.renderSignificantBits(idx, length)}
         `;
     }
 
@@ -65,5 +69,18 @@ export class ExpandedNumber extends BitArray {
             <span class="font-large grayed-out">=</span>
             <span class="font-large">${value}</span>
         `;
+    }
+
+    renderSignificantBits(idx: number, length: number) {
+        if (!this.showSignificantBits) return null;
+        const isMostSignificantBit = idx === 0;
+        const isLeastSignificantBit = idx === length - 1;
+        if (isMostSignificantBit) {
+            return html /* html */ `<span>[MSB]</span>`;
+        } else if (isLeastSignificantBit) {
+            return html /* html */ `<span>[LSB]</span>`;
+        } else {
+            return html /* html */ `<span>&nbsp;</span>`;
+        }
     }
 }
