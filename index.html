@@ -228,9 +228,24 @@
 
       <!-- TODO: Negative Numbers. One's Complement and Two's Complement -->
 
-      <!-- TODO: Other Number Formats like Octal and HexaDecimal (Base 16), grouping bits, when and why to use -->
+      <section id="other-bases" class="topic">
+        <h3>Other Bases</h3>
 
-      <section id="addition" class="topic">
+        <p>In addition to the binary (base 2) and decimal (base 10) systems, there are other number systems that are
+          commonly used in computing:</p>
+
+        <ul>
+          <li><strong>Octal (Base 8):</strong> Uses digits from 0 to 7. Each octal digit represents three binary bits.
+          </li>
+          <li><strong>Hexadecimal (Base 16):</strong> Uses digits from 0 to 9 and letters A to F (where A=10, B=11,
+            C=12,
+            D=13, E=14, F=15). Each hexadecimal digit represents four binary bits.</li>
+        </ul>
+
+        <p>See <a href="#bases">Bases</a> for more information on different number systems.</p>
+      </section>
+
+      <section id=" addition" class="topic">
         <h3>Binary Addition (<code>+</code>)</h3>
         <p>Binary addition follows the same principles as decimal addition, but it only involves: <code>0</code> and
           <code>1</code>.
@@ -255,6 +270,32 @@
       <!-- TODO: Binary Division (quotient and remainder) -->
 
     </section>
+
+    <section id="bases" class="topic">
+      <!-- TODO: Other Number Formats like Octal and HexaDecimal (Base 16), grouping bits, when and why to use -->
+      <h2>Bases</h2>
+
+      <p>In addition to the binary (base 2) and decimal (base 10) systems, there are other number systems that are
+        commonly used in computing:</p>
+
+      <ul>
+        <li><strong>Octal (Base 8):</strong> Uses digits from 0 to 7. Each octal digit represents three binary bits.
+        </li>
+        <li><strong>Hexadecimal (Base 16):</strong> Uses digits from 0 to 9 and letters A to F (where A=10, B=11,
+          C=12,
+          D=13, E=14, F=15). Each hexadecimal digit represents four binary bits.</li>
+      </ul>
+
+      <section class="showcase">
+        <bit-rebase value="174" rebase="8"></bit-rebase>
+      </section>
+
+      <section class="showcase">
+        <bit-rebase value="174" rebase="16"></bit-rebase>
+      </section>
+    </section>
+
+
 
     <!-- TODO: Logic Gates -->
     <!-- TODO: Basic Gates -->
@@ -324,7 +365,8 @@
       </section>
       <section id="bitwise-not" class="topic">
         <h3>Bitwise <code>NOT</code> (<code>~</code>)</h3>
-        <p>The bitwise <code>NOT</code> (<code>~</code>) operation, also known as the bitwise complement, takes a single
+        <p>The bitwise <code>NOT</code> (<code>~</code>) operation, also known as the bitwise complement, takes a
+          single
           binary number and
           inverts all of its bits. The resulting bit is <code>1</code> if the original bit is <code>0</code>, and
           <code>0</code> if the original bit is <code>1</code>.
@@ -340,7 +382,8 @@
       </section>
       <section id="bitwise-left-shift" class="topic">
         <h3>Bitwise <code>Left-Shift</code> (<code>&lt;&lt;</code>)</h3>
-        <p>The bitwise left-shift operation (<code>&lt;&lt;</code>) shifts all bits in a binary number to the left by a
+        <p>The bitwise left-shift operation (<code>&lt;&lt;</code>) shifts all bits in a binary number to the left by
+          a
           specified number of positions. The vacated rightmost bits are filled with <code>0</code>s. This operation is
           equivalent to multiplying the number by 2 for each shift position.</p>
         <p>Here are the rules for the bitwise left-shift operation:</p>
@@ -361,10 +404,13 @@
       </section>
       <section id="bitwise-right-shift" class="topic">
         <h3>Bitwise <code>Right-Shift</code> (<code>&gt;&gt;</code>)</h3>
-        <p>The bitwise right-shift operation (<code>&gt;&gt;</code>) shifts all bits in a binary number to the right by
+        <p>The bitwise right-shift operation (<code>&gt;&gt;</code>) shifts all bits in a binary number to the right
+          by
           a
-          specified number of positions. The vacated leftmost bits are filled with <code>0</code>s for unsigned numbers,
-          and with the sign bit (the most significant bit) for signed numbers. This operation is equivalent to dividing
+          specified number of positions. The vacated leftmost bits are filled with <code>0</code>s for unsigned
+          numbers,
+          and with the sign bit (the most significant bit) for signed numbers. This operation is equivalent to
+          dividing
           the number by 2 for each shift position, discarding any remainders.</p>
         <p>Here are the rules for the bitwise right-shift operation:</p>
         <ul>
