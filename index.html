@@ -231,16 +231,7 @@
       <section id="other-bases" class="topic">
         <h3>Other Bases</h3>
 
-        <p>In addition to the binary (base 2) and decimal (base 10) systems, there are other number systems that are
-          commonly used in computing:</p>
-
-        <ul>
-          <li><strong>Octal (Base 8):</strong> Uses digits from 0 to 7. Each octal digit represents three binary bits.
-          </li>
-          <li><strong>Hexadecimal (Base 16):</strong> Uses digits from 0 to 9 and letters A to F (where A=10, B=11,
-            C=12,
-            D=13, E=14, F=15). Each hexadecimal digit represents four binary bits.</li>
-        </ul>
+        <p>Other common number systems used in digital computing include octal (base 8) and hexadecimal (base 16).</p>
 
         <section class="showcase">
           <expanded-number value="139" base="2" length="8" show-breakdown
@@ -258,9 +249,10 @@
         </section>
 
         <p>As you can see, far fewer bits are needed to represent the same value in higher bases. This allows us to
-          condense the information and make it more readable.</p>
+          condense the information and make it more readable. Especially as base-8 and base-16 are powers of 2, they
+          align neatly with binary representation by simply grouping several bits together.</p>
 
-        <p>See <a href="#bases">Bases</a> for a more detailed explanation of different number systems.</p>
+        <p>See <a href="#bases">Bases</a> for a more detailed section on higher bases.</p>
       </section>
 
       <section id=" addition" class="topic">
@@ -293,16 +285,40 @@
       <!-- TODO: Other Number Formats like Octal and HexaDecimal (Base 16), grouping bits, when and why to use -->
       <h2>Bases</h2>
 
-      <p>In addition to the binary (base 2) and decimal (base 10) systems, there are other number systems that are
-        commonly used in computing:</p>
+      <p>While binary (base 2) is the foundation of digital computing, other bases like octal (base -8), hexadecimal
+        (base-16) and base-64 are also commonly used to represent large amounts of data. As
+        they are powers of 2 themselves, they provide a more compact representation of binary numbers, making them
+        easier to read and work with. Groups of three binary bits can be represented by a single octal digit, and
+        groups of four binary bits can be represented by a single hexadecimal digit.</p>
 
-      <ul>
-        <li><strong>Octal (Base 8):</strong> Uses digits from 0 to 7. Each octal digit represents three binary bits.
-        </li>
-        <li><strong>Hexadecimal (Base 16):</strong> Uses digits from 0 to 9 and letters A to F (where A=10, B=11,
-          C=12,
-          D=13, E=14, F=15). Each hexadecimal digit represents four binary bits.</li>
-      </ul>
+      <section id="octal" class="topic">
+        <h3>Octal (Base 8)</h3>
+        <p>Octal is a base-8 number system that uses digits from 0 to 7. Each octal digit represents three binary bits,
+          making it a more compact way to represent binary numbers.</p>
+      </section>
+
+      <section id="hexadecimal" class="topic">
+        <h3>Hexadecimal (Base 16)</h3>
+        <p>Hexadecimal is a base-16 number system that uses digits from 0 to 9 and letters from A to F (where A
+          represents 10, B represents 11, C represents 12, D represents 13, E represents 14, and F represents
+          15). Each hexadecimal digit represents four binary bits, making it an even more compact way to represent
+          binary numbers.</p>
+      </section>
+
+      <section id="base-32" class="topic">
+        <h3>Base 32</h3>
+        <p>Base 32 is a number system that uses 32 distinct symbols, typically the digits 0-9 and the letters A-V. Each
+          base-32 digit represents five binary bits, providing a more compact representation of binary numbers compared
+          to octal and hexadecimal.</p>
+      </section>
+
+      <section id="base-64" class="topic">
+        <h3>Base 64</h3>
+        <p>Base 64 is a number system that uses 64 distinct symbols, typically the digits 0-9, the letters A-Z, and
+          the letters a-z, along with two additional symbols (often + and /). Each base-64 digit represents six binary
+          bits, making it an even more compact way to represent binary numbers compared to octal, hexadecimal, and
+          base-32.</p>
+      </section>
 
       <section class="showcase">
         <bit-rebase value="174" rebase="8"></bit-rebase>
