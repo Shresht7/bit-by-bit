@@ -1,7 +1,7 @@
 // Library
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { binary, decimal, hexadecimal, octal, base, type CHARSET } from "../library/charset";
+import { binary, decimal, hexadecimal, octal, base, type CHARSET, base32, base64 } from "../library/charset";
 import { map } from "lit/directives/map.js";
 
 @customElement("char-set")
@@ -20,6 +20,10 @@ export class CharSet extends LitElement {
                 return octal;
             case "hexadecimal":
                 return hexadecimal;
+            case "base32":
+                return base32;
+            case "base64":
+                return base64;
         }
     }
 
@@ -29,15 +33,19 @@ export class CharSet extends LitElement {
 
     static styles = css /* css */ `
         :host {
-            display: inline-flex;
-            gap: 1rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             font-family: var(--font-family-code);
         }
 
         .symbols {
             padding: 0.25em 0.5em;
             font-family: var(--font-family-code);
-            font-size: 1.25rem;
+            font-size: 0.875rem;
             font-weight: bold;
             color: var(--color-text);
             background-color: var(--color-background);
@@ -48,7 +56,6 @@ export class CharSet extends LitElement {
     `;
 
     render() {
-        console.log(this.getCharsetSymbols())
         return html /* html */`
             ${map(this.getCharsetSymbols(), symbol => html /* html */`
                 <span class="symbols">${symbol}</span>
