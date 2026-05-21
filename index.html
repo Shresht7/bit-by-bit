@@ -294,6 +294,20 @@
       <p>While binary (base 2) is the foundation of digital computing, other bases like octal (base -8), hexadecimal
         (base-16) and base-64 are also commonly used to represent large amounts of data.</p>
 
+      <p>A number-system can have any base, but having the base be a power of 2 (like 8 or 16) makes it align neatly
+        with binary representation by simply grouping several bits together. As they are powers of 2 themselves, they
+        provide a more compact representation of binary numbers, making them easier to read and work with. Groups of
+        three binary bits can be represented by a single octal digit, and groups of four binary bits can be represented
+        by a single hexadecimal digit.</p>
+
+      <section class="showcase">
+        <bit-rebase value="174" rebase="8"></bit-rebase>
+      </section>
+
+      <section class="showcase">
+        <bit-rebase value="174" rebase="16"></bit-rebase>
+      </section>
+
       <section id="binary" class="topic">
         <h3>Binary (Base 2)</h3>
 
@@ -302,6 +316,10 @@
           (1), the next bit representing 2^1 (2), then 2^2 (4), and so on, doubling with each position to the left.</p>
 
         <char-set name="binary"></char-set>
+
+        <section class="showcase">
+          <expanded-number value="139" base="2" show-breakdown></expanded-number>
+        </section>
       </section>
 
       <section id="octal" class="topic">
@@ -311,6 +329,10 @@
           making it a more compact way to represent binary numbers.</p>
 
         <char-set name="octal"></char-set>
+
+        <section class="showcase">
+          <expanded-number value="139" base="8" show-breakdown></expanded-number>
+        </section>
       </section>
 
       <section id="decimal" class="topic">
@@ -321,6 +343,10 @@
           and so on, multiplying by 10 with each position to the left.</p>
 
         <char-set name="decimal"></char-set>
+
+        <section class="showcase">
+          <expanded-number value="139" base="10" show-breakdown></expanded-number>
+        </section>
       </section>
 
       <section id="hexadecimal" class="topic">
@@ -332,6 +358,10 @@
           binary numbers.</p>
 
         <char-set name="hexadecimal"></char-set>
+
+        <section class="showcase">
+          <expanded-number value="139" base="16" show-breakdown></expanded-number>
+        </section>
       </section>
 
       <section id="base-32" class="topic">
@@ -356,19 +386,7 @@
         <char-set name="base64"></char-set>
       </section>
 
-      <p>A number-system can have any base, but having the base be a power of 2 (like 8 or 16) makes it align neatly
-        with binary representation by simply grouping several bits together. As they are powers of 2 themselves, they
-        provide a more compact representation of binary numbers, making them easier to read and work with. Groups of
-        three binary bits can be represented by a single octal digit, and groups of four binary bits can be represented
-        by a single hexadecimal digit.</p>
 
-      <section class="showcase">
-        <bit-rebase value="174" rebase="8"></bit-rebase>
-      </section>
-
-      <section class="showcase">
-        <bit-rebase value="174" rebase="16"></bit-rebase>
-      </section>
     </section>
 
 
