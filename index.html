@@ -231,7 +231,11 @@
       <section id="other-bases" class="topic">
         <h3>Other Bases</h3>
 
-        <p>Other common number systems used in digital computing include octal (base 8) and hexadecimal (base 16).</p>
+        <p>Binary (base-2) is how machines shtore data, but there are other common number systems used in digital
+          computing like octal (base 8) and hexadecimal (base 16) because they are terser and easier to read and work
+          with.</p>
+
+        <p>For example, the decimal number <code>139</code> can be represented in different bases as follows:</p>
 
         <section class="showcase">
           <expanded-number value="139" base="2" length="8" show-breakdown
@@ -249,10 +253,12 @@
         </section>
 
         <p>As you can see, far fewer bits are needed to represent the same value in higher bases. This allows us to
-          condense the information and make it more readable. Especially as base-8 and base-16 are powers of 2, they
-          align neatly with binary representation by simply grouping several bits together.</p>
+          condense the information and make it more readable.</p>
 
-        <p>See <a href="#bases">Bases</a> for a more detailed section on higher bases.</p>
+        <p>You will also encounter even denser encodings like <a href="#base-32">Base 32</a> and <a href="#base-64">Base
+            64</a> that are used in identifiers, URLs, and data exchange formats etc.</p>
+
+        <p>See <a href="#bases">Bases</a> for more details</p>
       </section>
 
       <section id="addition" class="topic">
@@ -286,10 +292,7 @@
       <h2>Bases</h2>
 
       <p>While binary (base 2) is the foundation of digital computing, other bases like octal (base -8), hexadecimal
-        (base-16) and base-64 are also commonly used to represent large amounts of data. As
-        they are powers of 2 themselves, they provide a more compact representation of binary numbers, making them
-        easier to read and work with. Groups of three binary bits can be represented by a single octal digit, and
-        groups of four binary bits can be represented by a single hexadecimal digit.</p>
+        (base-16) and base-64 are also commonly used to represent large amounts of data.</p>
 
       <section id="octal" class="topic">
         <h3>Octal (Base 8)</h3>
@@ -319,6 +322,12 @@
           bits, making it an even more compact way to represent binary numbers compared to octal, hexadecimal, and
           base-32.</p>
       </section>
+
+      <p>A number-system can have any base, but having the base be a power of 2 (like 8 or 16) makes it align neatly
+        with binary representation by simply grouping several bits together. As they are powers of 2 themselves, they
+        provide a more compact representation of binary numbers, making them easier to read and work with. Groups of
+        three binary bits can be represented by a single octal digit, and groups of four binary bits can be represented
+        by a single hexadecimal digit.</p>
 
       <section class="showcase">
         <bit-rebase value="174" rebase="8"></bit-rebase>
