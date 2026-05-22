@@ -294,20 +294,6 @@
       <p>While binary (base 2) is the foundation of digital computing, other bases like octal (base -8), hexadecimal
         (base-16) and base-64 are also commonly used to represent large amounts of data.</p>
 
-      <p>A number-system can have any base, but having the base be a power of 2 (like 8 or 16) makes it align neatly
-        with binary representation by simply grouping several bits together. As they are powers of 2 themselves, they
-        provide a more compact representation of binary numbers, making them easier to read and work with. Groups of
-        three binary bits can be represented by a single octal digit, and groups of four binary bits can be represented
-        by a single hexadecimal digit.</p>
-
-      <section class="showcase">
-        <bit-rebase value="174" rebase="8"></bit-rebase>
-      </section>
-
-      <section class="showcase">
-        <bit-rebase value="174" rebase="16"></bit-rebase>
-      </section>
-
       <section id="binary" class="topic">
         <h3>Binary (Base 2)</h3>
 
@@ -386,6 +372,24 @@
         <char-set name="base64"></char-set>
       </section>
 
+      <section id="grouping-bits" class="topic">
+        <h3>Grouping Bits</h3>
+
+        <p>A number-system can have any base, but having the base be a power of 2 (like 8 or 16) makes it align neatly
+          with binary representation by simply grouping several bits together. As they are powers of 2 themselves, they
+          provide a more compact representation of binary numbers, making them easier to read and work with. Groups of
+          three binary bits can be represented by a single octal digit, and groups of four binary bits can be
+          represented
+          by a single hexadecimal digit.</p>
+
+        <section class="showcase">
+          <bit-rebase value="174" rebase="8"></bit-rebase>
+        </section>
+
+        <section class="showcase">
+          <bit-rebase value="174" rebase="16"></bit-rebase>
+        </section>
+      </section>
 
     </section>
 
