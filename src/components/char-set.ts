@@ -1,15 +1,18 @@
 // Library
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { binary, decimal, hexadecimal, octal, base, type CHARSET, base32, base64 } from "../library/charset";
 import { map } from "lit/directives/map.js";
+
+import { binary, decimal, hexadecimal, octal, base, base32, base64, type CHARSET, } from "../library/charset";
 
 @customElement("char-set")
 export class CharSet extends LitElement {
 
+    /** The name of the character set to display (e.g., "binary", "decimal", "octal", "hexadecimal", "base32", "base64"). */
     @property({ type: String, reflect: true })
     name: CHARSET = "binary";
 
+    /** Retrieves the set of symbols corresponding to the specified character set name. */
     getCharsetSymbols(): Set<number | string> {
         switch (this.name) {
             case "binary":
@@ -27,7 +30,8 @@ export class CharSet extends LitElement {
         }
     }
 
-    determineBase() {
+    /** @returns the base's numeric value corresponding to the character set */
+    determineBase(): number {
         return base(this.name);
     }
 
