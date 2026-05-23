@@ -8,6 +8,8 @@ import "./components/binary-operation.ts";
 import "./components/bitwise-not.ts";
 import "./components/bitwise-shift.ts";
 import "./components/number-input.ts";
+import "./components/bit-rebase.ts";
+import "./components/char-set.ts";
 
 // Modules
 import "./modules/scroll.ts"

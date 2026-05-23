@@ -107,7 +107,9 @@ export class BitCell extends LitElement {
 
         const valIfTrue = this.getAttribute("data-true") ?? "True";
         const valIfFalse = this.getAttribute("data-false") ?? "False";
-        const value = this.boolean ? (this.value ? valIfTrue : valIfFalse) : this.value;
+        const value = this.boolean
+            ? (this.value ? valIfTrue : valIfFalse)
+            : this.value.toString(this.base).toUpperCase();
 
         return html /* html */ `
             <div

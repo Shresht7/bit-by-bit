@@ -134,7 +134,7 @@
           digits of a number.</p>
 
         <div class="flex flex-row" style="justify-content: flex-start;">
-          <expanded-number value="0123456789" base="10" length="10" hide-value noninteractive></expanded-number>
+          <char-set name="decimal"></char-set>
         </div>
 
         <p>When we reach 9, we start a new column to the left, reset the current column to 0, and continue counting.
@@ -151,7 +151,7 @@
           the same.</p>
 
         <div class="flex flex-row" style="justify-content: flex-start;">
-          <expanded-number value="1" length="2" hide-value noninteractive></expanded-number>
+          <char-set name="binary"></char-set>
         </div>
 
         <number-counter value="0" base="2"></number-counter>
@@ -228,7 +228,38 @@
 
       <!-- TODO: Negative Numbers. One's Complement and Two's Complement -->
 
-      <!-- TODO: Other Number Formats like Octal and HexaDecimal (Base 16), grouping bits, when and why to use -->
+      <section id="other-bases" class="topic">
+        <h3>Other Bases</h3>
+
+        <p>Binary (base-2) is how machines store data, but there are other common number systems used in digital
+          computing like octal (base 8) and hexadecimal (base 16) because they are terser and easier to read and work
+          with.</p>
+
+        <p>For example, the decimal number <code>139</code> can be represented in different bases as follows:</p>
+
+        <section class="showcase">
+          <expanded-number value="139" base="2" length="8" show-breakdown
+            data-sync-group="other-bases"></expanded-number>
+        </section>
+
+        <section class="showcase">
+          <expanded-number value="139" base="8" length="3" show-breakdown
+            data-sync-group="other-bases"></expanded-number>
+        </section>
+
+        <section class="showcase">
+          <expanded-number value="139" base="16" length="2" show-breakdown
+            data-sync-group="other-bases"></expanded-number>
+        </section>
+
+        <p>As you can see, far fewer bits are needed to represent the same value in higher bases. This allows us to
+          condense the information and make it more readable.</p>
+
+        <p>You will also encounter even denser encodings like <a href="#base-32">Base 32</a> and <a href="#base-64">Base
+            64</a> that are used in identifiers, URLs, and data exchange formats etc.</p>
+
+        <p>See <a href="#bases">Bases</a> for more details</p>
+      </section>
 
       <section id="addition" class="topic">
         <h3>Binary Addition (<code>+</code>)</h3>
@@ -255,6 +286,113 @@
       <!-- TODO: Binary Division (quotient and remainder) -->
 
     </section>
+
+    <section id="bases" class="topic">
+      <h2>Bases</h2>
+
+      <p>While binary (base 2) is the foundation of digital computing, other bases like octal (base-8), hexadecimal
+        (base-16) and base-64 are also commonly used to represent large amounts of data.</p>
+
+      <section id="binary" class="topic">
+        <h3>Binary (Base 2)</h3>
+
+        <p>Binary is a base-2 number system that uses only two symbols, typically <code>0</code> and <code>1</code>, to
+          represent numbers. Each binary digit (bit) represents a power of 2, with the rightmost bit representing 2^0
+          (1), the next bit representing 2^1 (2), then 2^2 (4), and so on, doubling with each position to the left.</p>
+
+        <char-set name="binary"></char-set>
+
+        <section class="showcase">
+          <expanded-number value="139" base="2" show-breakdown></expanded-number>
+        </section>
+      </section>
+
+      <section id="octal" class="topic">
+        <h3>Octal (Base 8)</h3>
+
+        <p>Octal is a base-8 number system that uses digits from 0 to 7. Each octal digit represents three binary bits,
+          making it a more compact way to represent binary numbers.</p>
+
+        <char-set name="octal"></char-set>
+
+        <section class="showcase">
+          <expanded-number value="139" base="8" show-breakdown></expanded-number>
+        </section>
+      </section>
+
+      <section id="decimal" class="topic">
+        <h3>Decimal (Base 10)</h3>
+
+        <p>Decimal is a base-10 number system that uses digits from 0 to 9. Each decimal digit represents a power of 10,
+          with the rightmost digit representing 10^0 (1), the next digit representing 10^1 (10), then 10^2 (100),
+          and so on, multiplying by 10 with each position to the left.</p>
+
+        <char-set name="decimal"></char-set>
+
+        <section class="showcase">
+          <expanded-number value="139" base="10" show-breakdown></expanded-number>
+        </section>
+      </section>
+
+      <section id="hexadecimal" class="topic">
+        <h3>Hexadecimal (Base 16)</h3>
+
+        <p>Hexadecimal is a base-16 number system that uses digits from 0 to 9 and letters from A to F (where A
+          represents 10, B represents 11, C represents 12, D represents 13, E represents 14, and F represents
+          15). Each hexadecimal digit represents four binary bits, making it an even more compact way to represent
+          binary numbers.</p>
+
+        <char-set name="hexadecimal"></char-set>
+
+        <section class="showcase">
+          <expanded-number value="139" base="16" show-breakdown></expanded-number>
+        </section>
+      </section>
+
+      <section id="base-32" class="topic">
+        <h3>Base 32</h3>
+
+        <p>Base 32 is a number system that uses 32 distinct symbols, typically the digits 0-9 and the letters A-V. Each
+          base-32 digit represents five binary bits, providing a more compact representation of binary numbers compared
+          to octal and hexadecimal.</p>
+
+        <char-set name="base32"></char-set>
+      </section>
+
+      <section id="base-64" class="topic">
+
+        <h3>Base 64</h3>
+
+        <p>Base 64 is a number system that uses 64 distinct symbols, typically the digits 0-9, the letters A-Z, and
+          the letters a-z, along with two additional symbols (often + and /). Each base-64 digit represents six binary
+          bits, making it an even more compact way to represent binary numbers compared to octal, hexadecimal, and
+          base-32.</p>
+
+        <char-set name="base64"></char-set>
+      </section>
+
+      <section id="grouping-bits" class="topic">
+        <h3>Grouping Bits</h3>
+
+        <p>A number-system can have any base, but having the base be a power of 2 (like 8 or 16) makes it align neatly
+          with binary representation by simply grouping several bits together. As they are powers of 2 themselves, they
+          provide a more compact representation of binary numbers, making them easier to read and work with. Groups of
+          three binary bits can be represented by a single octal digit, and groups of four binary bits can be
+          represented
+          by a single hexadecimal digit.</p>
+
+        <section class="showcase">
+          <bit-rebase value="174" rebase="8"></bit-rebase>
+        </section>
+
+        <section class="showcase">
+          <bit-rebase value="174" rebase="16"></bit-rebase>
+        </section>
+      </section>
+
+    </section>
+
+
 
     <!-- TODO: Logic Gates -->
     <!-- TODO: Basic Gates -->
@@ -324,7 +462,8 @@
       </section>
       <section id="bitwise-not" class="topic">
         <h3>Bitwise <code>NOT</code> (<code>~</code>)</h3>
-        <p>The bitwise <code>NOT</code> (<code>~</code>) operation, also known as the bitwise complement, takes a single
+        <p>The bitwise <code>NOT</code> (<code>~</code>) operation, also known as the bitwise complement, takes a
+          single
           binary number and
           inverts all of its bits. The resulting bit is <code>1</code> if the original bit is <code>0</code>, and
           <code>0</code> if the original bit is <code>1</code>.
@@ -340,7 +479,8 @@
       </section>
       <section id="bitwise-left-shift" class="topic">
         <h3>Bitwise <code>Left-Shift</code> (<code>&lt;&lt;</code>)</h3>
-        <p>The bitwise left-shift operation (<code>&lt;&lt;</code>) shifts all bits in a binary number to the left by a
+        <p>The bitwise left-shift operation (<code>&lt;&lt;</code>) shifts all bits in a binary number to the left by
+          a
           specified number of positions. The vacated rightmost bits are filled with <code>0</code>s. This operation is
           equivalent to multiplying the number by 2 for each shift position.</p>
         <p>Here are the rules for the bitwise left-shift operation:</p>
@@ -361,10 +501,13 @@
       </section>
       <section id="bitwise-right-shift" class="topic">
         <h3>Bitwise <code>Right-Shift</code> (<code>&gt;&gt;</code>)</h3>
-        <p>The bitwise right-shift operation (<code>&gt;&gt;</code>) shifts all bits in a binary number to the right by
+        <p>The bitwise right-shift operation (<code>&gt;&gt;</code>) shifts all bits in a binary number to the right
+          by
           a
-          specified number of positions. The vacated leftmost bits are filled with <code>0</code>s for unsigned numbers,
-          and with the sign bit (the most significant bit) for signed numbers. This operation is equivalent to dividing
+          specified number of positions. The vacated leftmost bits are filled with <code>0</code>s for unsigned
+          numbers,
+          and with the sign bit (the most significant bit) for signed numbers. This operation is equivalent to
+          dividing
           the number by 2 for each shift position, discarding any remainders.</p>
         <p>Here are the rules for the bitwise right-shift operation:</p>
         <ul>
