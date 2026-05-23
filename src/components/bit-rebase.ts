@@ -54,8 +54,38 @@ export class BitRebase extends BitArray {
             background-color: var(--separator-color, #ccc);
         }
 
-        .decimal {
+        .font-large {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .grayed-out {
+            opacity: 0.25;
+        }
+
+        .value {
             font-family: var(--font-family-code);
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        [data-base]::before {
+            font-family: var(--font-family-code);
+            margin-right: 0.1rem;
+            font-size: 0.8rem;
+            color: var(--color-subdued);
+        }
+
+        [data-base="2"]::before {
+            content: "0b";
+        }
+
+        [data-base="8"]::before {
+            content: "0o";
+        }
+
+        [data-base="16"]::before {
+            content: "0x";
         }
     `];
 
@@ -68,13 +98,17 @@ export class BitRebase extends BitArray {
         }
         chunkedParts = chunkedParts.reverse().filter(chunk => chunk.length > 0);
 
+        const rebasedValue = this.value.toString(this.rebase).toUpperCase();
+
         return html /* html */ `
             <div class="flex flex-row" style="gap: 1.5rem;">
                 <div class="flex flex-row" style="gap: 3rem;">
                     ${map(chunkedParts, chunk => this.renderChunk(chunk))}
                 </div>
-                <div>=</div>
-                <div>${this.value}</div>
+                <div class="font-large grayed-out">=</div>
+                <div class="value" data-base=${this.rebase}>${rebasedValue}</div>
+                <div class="font-large grayed-out">=</div>
+                <div class="value">${this.value}</div>
             </div>
         `;
     }
@@ -100,7 +134,7 @@ export class BitRebase extends BitArray {
     
                 <div class="separator"></div>
     
-                <div class="decimal">${dec}</div>
+                <div class="value">${dec}</div>
     
                 <div class="flex flex-row">
                     <bit-cell
