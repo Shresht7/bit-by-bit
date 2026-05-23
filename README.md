@@ -11,6 +11,7 @@ Everything about binary numbers and bitwise operations.
 - https://en.wikipedia.org/wiki/Binary_number
 - https://en.wikipedia.org/wiki/Bitwise_operation
 - https://en.wikipedia.org/wiki/Arithmetic_logic_unit
+- https://www.rfc-editor.org/info/rfc4648/
 
 ### Development
 
