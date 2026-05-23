@@ -3,7 +3,7 @@ import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { map } from "lit/directives/map.js";
 
-import { binary, decimal, hexadecimal, octal, base, base32, base64, type CHARSET, } from "../library/charset";
+import { binary, decimal, hexadecimal, octal, base, base32, base64, type CHARSET } from "../library/charset";
 
 @customElement("char-set")
 export class CharSet extends LitElement {
@@ -27,6 +27,8 @@ export class CharSet extends LitElement {
                 return base32;
             case "base64":
                 return base64;
+            default:
+                return new Set(); // Return an empty set if the character set name is invalid
         }
     }
 
