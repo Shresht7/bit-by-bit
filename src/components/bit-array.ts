@@ -32,8 +32,9 @@ export class BitArray extends LitElement {
     updateValue = () => {
         if (this.noninteractive) return;
         let sum = 0;
+        const numCells = this.bitCells.length;
         this.bitCells.forEach((bitCell, index) => {
-            sum += bitCell.value * Math.pow(this.base, this.length - index - 1);
+            sum += bitCell.value * Math.pow(this.base, numCells - index - 1);
         });
         this.value = sum;
         this.dispatchEvent(new ValueChangedEvent(this.value));
