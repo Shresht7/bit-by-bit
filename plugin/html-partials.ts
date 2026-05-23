@@ -27,7 +27,12 @@ export default function htmlPartials(options: PluginOptions = {}): Plugin {
         transformIndexHtml(html) {
             // Replace <!-- partial:filename.html --> with the contents of src/partials/filename.html
             return html.replace(/<!--\s*partial:([\w./\-]+)\s*-->/g, (match, file) => {
-                const filePath = path.resolve(process.cwd(), partialsDir, file.trim());
+                const filePath = path.resolve(partialsPath, file.trim());
+                const relativePath = path.relative(partialsPath, filePath);
+                if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
+                    console.warn(`[${PLUGIN_NAME}] Partial file escapes partials directory: ${filePath}`);
+                    return match;
+                }
                 if (!fs.existsSync(filePath)) {
                     console.warn(`[${PLUGIN_NAME}] Partial file not found: ${filePath}`);
                     return match; // Return the original comment if file not found
