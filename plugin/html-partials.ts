@@ -13,7 +13,13 @@ type PluginOptions = {
 
 /** Factory function to create the HTML partials plugin for Vite */
 export default function htmlPartials(options: PluginOptions = {}): Plugin {
+
     const { partialsDir = 'src/partials' } = options;
+
+    const partialsPath = path.resolve(process.cwd(), partialsDir)
+    if (!fs.existsSync(partialsPath)) {
+        console.warn(`[${PLUGIN_NAME}] Partials directory not found: ${partialsPath}`);
+    }
 
     return {
         name: PLUGIN_NAME,
@@ -28,6 +34,17 @@ export default function htmlPartials(options: PluginOptions = {}): Plugin {
                 }
                 return fs.readFileSync(filePath, 'utf-8'); // Replace the comment with the file contents
             })
+        },
+
+        configureServer(server) {
+            // Watch the partials directory for changes and trigger a full page reload when a partial file is modified
+            server.watcher.add(partialsPath)
+            server.watcher.on('change', (file) => {
+                if (file.startsWith(partialsPath)) {
+                    server.ws.send({ type: 'full-reload' })
+                }
+            })
         }
     }
+
 }
