@@ -18,7 +18,11 @@ export class BitRebase extends BitArray {
 
     /** Determines the chunk size based on the rebase value.
      * For example, if rebase is 8, chunk size will be 3 (since 2^3 = 8).
-     * If rebase is 16, chunk size will be 4 (since 2^4 = 16).*/
+     * If rebase is 16, chunk size will be 4 (since 2^4 = 16). 
+     * Note: This method assumes that the rebase value is a power of 2.
+     *       If it's not, it will calculate the chunk size as the smallest integer such that 2^chunk >= rebase.
+     *       May want to handle any base in the future, but it's fine for now
+     * */
     determineChunkSize() {
         let size = 1;
         while (Math.pow(2, size) < this.rebase) {
