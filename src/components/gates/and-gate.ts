@@ -125,15 +125,19 @@ export class AndGateSVG extends LitElement {
     }
 
     get outlinePath() {
-        // TODO: Dynamically generate this path based on width, height, and outlineWidth
-        return `M 00,08
-                L 40,08
-                C 40,08 64,08 64,32
-                C 64,56 40,56 40,56
-                L 00,56
-                L 00,08 
-                Z
-        `;
+        const padding = this.height / 8;
+        const curve = this.width * 5 / 8;
+        const midHeight = this.height / 2;
+
+        return [
+            `M 0,${padding}`, // Move down to the top-left corner, accounting for padding
+            `L ${curve},${padding}`, // Line to the start of the curve on the top edge
+            `C ${curve},${padding} ${this.width},${padding} ${this.width},${midHeight}`, // Curve to the middle of the right edge
+            `C ${this.width},${this.height - padding} ${curve},${this.height - padding} ${curve},${this.height - padding}`, // Curve to the start of the curve on the bottom edge
+            `L 0,${this.height - padding}`, // Line to the bottom-left corner, accounting for padding
+            `L 0,${padding}`, // Line back to the top-left corner, closing the path
+            `Z` // Close the path. Not really necessary since we already returned to the starting point but might as well be explicit about it
+        ].join(" ");
     }
 
     render() {
