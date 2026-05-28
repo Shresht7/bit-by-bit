@@ -10,6 +10,7 @@ import "./components/bitwise-shift.ts";
 import "./components/number-input.ts";
 import "./components/bit-rebase.ts";
 import "./components/char-set.ts";
+import "./components/gates/index.ts";
 
 // Modules
 import "./modules/scroll.ts"
