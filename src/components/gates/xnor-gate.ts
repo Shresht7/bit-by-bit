@@ -1,0 +1,51 @@
+// Library
+import { svg } from "lit";
+import { customElement } from "lit/decorators.js";
+import { LogicGate } from "./logic-gate";
+
+@customElement("xnor-gate")
+export class XnorGate extends LogicGate {
+
+    performLogic(): number {
+        return this.inputs.reduce((acc, curr) => acc ^ curr, 0) ^ 1;
+    }
+
+    renderSvg() {
+        return svg /* svg */`
+        <svg width="100%" height="100%" viewBox="-1 -1 66 66" xmlns="http://www.w3.org/2000/svg">
+
+            <style>
+                .outline {
+                    fill: none;
+                    stroke: black;
+                    stroke-width: 2;
+                    stroke-linejoin: round;
+                }
+            
+                .label {
+                    font-family: var(--font-family-code, monospace);
+                    font-size: 12px;
+                    fill: black;
+                    text-anchor: middle;
+                    alignment-baseline: middle;
+                }
+            </style>
+            
+            <defs>
+                <mask id="xnor-hole">
+                    <rect width="100%" height="100%" fill="white" />
+                    <circle cx="59" cy="32" r="5" fill="black" />
+                </mask>
+            </defs>
+            
+            <path class="outline" d="M2,10 C2,10, 12,17, 12,32 C12,47, 2,54, 1,55" />
+            
+            <path class="outline" mask="url(#xnor-hole)" d="M4,8 C4,8,8,8,16,8 C19.664,8,24.828,7.593,35,12 C47.037,17.215,56,32,56,32 C56,32,47.301,46.932,36,52 C25.217,56.835,19.906,56,16,56 C8,56,4,56,4,56 C4,56,15,48,15,32 C15,16,4,8,4,8 Z" />
+            
+            <circle class="outline" cx="59" cy="32" r="5" />
+            
+            <text class="label" x="33" y="33">XNOR</text>
+        </svg>
+        `;
+    }
+}
