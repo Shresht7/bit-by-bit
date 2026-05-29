@@ -24,7 +24,7 @@ export class AndGate extends LogicGate {
                     .label {
                         text-anchor: middle;
                         alignment-baseline: middle;
-                        font-family: monospace;
+                        font-family: var(--font-family-code, monospace);
                         font-size: 16px;
                         fill: black;
                     }
