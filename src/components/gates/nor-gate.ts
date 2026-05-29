@@ -1,0 +1,48 @@
+// Library
+import { svg } from "lit";
+import { customElement } from "lit/decorators.js";
+import { LogicGate } from "./logic-gate";
+
+@customElement("nor-gate")
+export class NorGate extends LogicGate {
+
+    performLogic(): number {
+        return this.inputs.reduce((acc, curr) => acc & curr, 1) ^ 1;
+    }
+
+    renderSvg() {
+        return svg /* svg */`
+        <svg width="100%" height="100%" viewBox="-1 -1 66 66" xmlns="http://www.w3.org/2000/svg">
+
+            <style>
+                .outline {
+                    fill: none;
+                    stroke: black;
+                    stroke-width: 2;
+                }
+            
+                .label {
+                    font-family: var(--font-family-code, monospace);
+                    font-size: 16px;
+                    fill: black;
+                    text-anchor: middle;
+                    alignment-baseline: middle;
+                }
+            </style>
+            
+            <defs>
+                <mask id="nor-hole">
+                    <rect width="64" height="64" fill="white" />
+                    <circle cx="59" cy="32" r="5" fill="black" />
+                </mask>
+            </defs>
+            
+            <path class="outline" d="M0,8 C0,8,8,8,16,8 C19.664,8,24.828,7.593,35,12 C47.037,17.215,56,32,56,32 C56,32,47.301,46.932,36,52 C25.217,56.835,19.906,56,16,56 C8,56,0,56,0,56 C0,56,15,48,15,32 C15,16,0,8,0,8" mask="url(#nor-hole)" />
+            
+            <circle cx="59" cy="32" r="5" class="outline" />
+            
+            <text x="32" y="32" class="label">NOR</text>
+        </svg>
+        `;
+    }
+}
