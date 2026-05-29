@@ -72,7 +72,6 @@ export class AndGate extends LitElement {
 
     render() {
         return html /* html */`
-        
             <div class="and-gate">
                 <div class="inputs" @bit-update=${this.handleBitUpdate}>
                     <bit-cell .value=${this.inputs[0]} interactive></bit-cell>

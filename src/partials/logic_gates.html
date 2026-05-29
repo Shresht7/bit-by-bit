@@ -105,6 +105,30 @@
     </div>
 </section>
 
+<section id="nand-gate" class="topic">
+    <h3><code>NAND</code> Gate</h3>
+
+    <p>
+        A <code>NAND</code> gate is a digital logic gate that outputs false (0) only if all of its inputs are true (1).
+        If any of the inputs are false (0), the output will be true (1). In other words, a <code>NAND</code> gate is
+        the opposite of an <code>AND</code> gate.
+    </p>
+
+    <p>
+        A <code>NAND</code> can be achieved by combining an <code>AND</code> gate with a <code>NOT</code> gate. The
+        output will be <code>OFF</code> only if both inputs are <code>ON</code>.
+    </p>
+
+    <div class="flex flex-row" style="gap: 0;">
+        <svg-switch value="1" interactive></svg-switch>
+        <svg-switch value="1" interactive></svg-switch>
+    </div>
+
+    <div>
+        <nand-gate inputs="[1, 1]"></nand-gate>
+    </div>
+</section>
+
 <!-- TODO: Logic Gates -->
 <!-- TODO: Basic Gates -->
 <!-- TODO: Derived Gates (NAND, NOR, XNOR), universal gates -->
