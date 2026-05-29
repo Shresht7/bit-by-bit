@@ -26,7 +26,7 @@ export class NotGate extends LogicGate {
                     font-size: 16px;
                     fill: black;
                     text-anchor: middle;
-                    dominant-baseline: middle;
+                    alignment-baseline: middle;
                 }
             </style>
             
