@@ -1,101 +1,13 @@
 // Library
-import { LitElement, html, css, svg } from "lit";
-import { customElement, property, queryAll, state } from "lit/decorators.js";
-import type { BitCell, BitUpdateEvent } from "../bit-cell";
+import { svg } from "lit";
+import { customElement } from "lit/decorators.js";
+import { LogicGate } from "./logic-gate";
 
 @customElement("nand-gate")
-export class NandGate extends LitElement {
-
-    @property({ type: Array, reflect: true })
-    inputs: number[] = [0, 0];
-
-    @state()
-    output: number = 0;
-
-    update(changedProperties: Map<string, any>) {
-        super.update(changedProperties);
-        if (changedProperties.has("inputs")) {
-            this.performLogic();
-        }
-    }
+export class NandGate extends LogicGate {
 
     performLogic() {
-        this.output = this.inputs.reduce((acc, curr) => acc & curr, 1) ^ 1;
-    }
-
-
-    @queryAll("bit-cell")
-    inputCells!: NodeListOf<BitCell>;
-
-    handleBitUpdate(event: BitUpdateEvent) {
-        const target = event.target as BitCell;
-        const index = Array.from(this.inputCells).indexOf(target);
-        if (index === -1) return;
-        this.inputs[index] = target.value;
-        this.performLogic();
-    }
-
-    static styles = css /* css */`
-        :host {
-            height: 100%;
-            display: grid;
-            grid-template-columns: auto auto auto;
-            grid-template-rows: auto auto;
-            place-content: center;
-        }
-
-        .nand-gate {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .inputs {
-            height: 20ch; /* TODO: Do something better than hardcoding this */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .wire {
-            width: 5ch;
-            height: 2px;
-            background-color: black;
-        }
-
-        .symbol {
-            width: 20ch;
-            height: 20ch;
-        }
-    `;
-
-    render() {
-        return html /* html */`
-            <div class="nand-gate">
-                <div class="inputs" @bit-update=${this.handleBitUpdate}>
-                    <bit-cell .value=${this.inputs[0]} interactive></bit-cell>
-                    <bit-cell .value=${this.inputs[1]} interactive></bit-cell>
-                </div>
-                <div class="inputs">
-                    <div class="wire"></div>
-                    <div class="wire"></div>
-                </div>
-
-                <div class="symbol">
-                    ${this.renderSvg()}
-                </div>
-
-                <div class="output">
-                    <div class="wire"></div>
-                </div>
-
-                <div class="output">
-                    <bit-cell .value=${this.output} readonly></bit-cell>
-                </div>
-            </div>
-        `;
+        return this.inputs.reduce((acc, curr) => acc & curr, 1) ^ 1;
     }
 
     renderSvg() {

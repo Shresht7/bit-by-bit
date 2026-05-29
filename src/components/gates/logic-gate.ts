@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, css, type TemplateResult } from "lit";
 import { property, queryAll } from "lit/decorators.js";
 
 import type { BitCell, BitUpdateEvent } from "../bit-cell";
@@ -23,6 +23,7 @@ export abstract class LogicGate extends LitElement {
         if (index === -1) return;
         this.inputs[index] = target.value;
         this.performLogic();
+        this.requestUpdate();
     }
 
     static styles = css /* css */`
@@ -89,6 +90,6 @@ export abstract class LogicGate extends LitElement {
         `;
     }
 
-    protected abstract renderSvg(): string;
+    protected abstract renderSvg(): TemplateResult;
 
 }
