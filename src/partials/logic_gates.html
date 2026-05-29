@@ -1,5 +1,22 @@
 <h2>Logic Gates</h2>
 
+<p>
+    Logic Gates are the fundamental building blocks of digital circuits. They use Boolean algebra to perform
+    logical operations that underpin all of digital computation. By combining logic gates in various ways, we can create
+    complex circuits that can perform a wide range of functions, from simple arithmetic operations to complex
+    decision-making processes. Understanding logic gates is essential for anyone interested in computer science,
+    electrical engineering, or digital design, as they form the basis for all digital systems, including the processors
+    that power our computers and smartphones.
+</p>
+
+<p>
+    Logic Gates are built using simple electronic components like diodes and transistors. By
+    arranging these components in specific configurations, we can create gates that perform specific logical operations
+    on binary inputs (0s and 1s). The most common logic gates include <code>AND</code>, <code>OR</code>,
+    <code>NOT</code>, <code>NAND</code>, <code>NOR</code>, <code>XOR</code>, and <code>XNOR</code> gates. Each
+    gate has a unique truth table that defines its output based on the combination of its inputs.
+</p>
+
 <section id="switch" class="topic">
     <h3>The Switch</h3>
 
@@ -40,7 +57,8 @@
 
     <p>
         An <code>AND</code> gate is a digital logic gate that outputs true (1) only if all of its inputs are true (1).
-        If any of the inputs are false (0), the output will be false (0).
+        If any of the inputs are false (0), the output will be false (0). It essentially performs logical
+        multiplication.
     </p>
 
     <p>
@@ -63,7 +81,7 @@
 
     <p>
         An <code>OR</code> gate is a digital logic gate that outputs true (1) if at least one of its inputs is true (1).
-        If all of the inputs are false (0), the output will be false (0).
+        If all of the inputs are false (0), the output will be false (0). It essentially performs logical addition.
     </p>
 
     <p>
@@ -87,9 +105,10 @@
 
     <p>
         A <code>NOT</code> gate is a digital logic gate that outputs the opposite of its input. If the input is true
-        (1),
-        the output will be false (0), and if the input is false (0), the output will be true (1).
+        (1),the output will be false (0), and if the input is false (0), the output will be true (1).
     </p>
+
+    <p><code>NOT</code> Gate is also aptly called an inverter because it inverts the input signal.</p>
 
     <p>
         A <code>NOT</code> can be achieved by using a single switch in series with a power source. The output will be
@@ -194,9 +213,8 @@
         gates by connecting the output of a <code>NOR</code> gate to the input of a <code>NOT</code> gate (which can
         also be implemented using a <code>NOR</code> gate).
     </p>
+
+    <!-- TODO: Examples of universal gates in action -->
 </section>
 
-<!-- TODO: Logic Gates -->
-<!-- TODO: Basic Gates -->
-<!-- TODO: Derived Gates (NAND, NOR, XNOR), universal gates -->
 <!-- TODO: Combinational Circuits - half/full adders, multiplexers, decoders, comparators -->
