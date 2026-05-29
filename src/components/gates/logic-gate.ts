@@ -1,5 +1,7 @@
+// Library
 import { LitElement, html, css, type TemplateResult } from "lit";
 import { property, queryAll } from "lit/decorators.js";
+import { map } from "lit/directives/map.js";
 
 import type { BitCell, BitUpdateEvent } from "../bit-cell";
 
@@ -65,13 +67,15 @@ export abstract class LogicGate extends LitElement {
             <div class="gate">
                 
                 <div class="inputs" @bit-update=${this.handleBitUpdate}>
-                    <bit-cell .value=${this.inputs[0]} interactive></bit-cell>
-                    <bit-cell .value=${this.inputs[1]} interactive></bit-cell>
+                    ${map(this.inputs, (input) => html /* html */`
+                        <bit-cell .value=${input} interactive></bit-cell>
+                    `)}
                 </div>
                 
                 <div class="inputs">
-                    <div class="wire"></div>
-                    <div class="wire"></div>
+                    ${map(this.inputs, () => html /* html */`
+                        <div class="wire"></div>
+                    `)}
                 </div>
 
                 <div class="symbol">

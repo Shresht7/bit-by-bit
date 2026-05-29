@@ -1,77 +1,13 @@
 // Library
-import { LitElement, html, css, svg } from "lit";
-import { customElement, property, query, state } from "lit/decorators.js";
-
-import type { BitCell } from "../bit-cell";
+import { svg } from "lit";
+import { customElement } from "lit/decorators.js";
+import { LogicGate } from "./logic-gate";
 
 @customElement("not-gate")
-export class NotGate extends LitElement {
+export class NotGate extends LogicGate {
 
-    @property({ type: Number, reflect: true })
-    input: number = 0;
-
-    @state()
-    output: number = 0;
-
-    updated(changedProperties: Map<string, any>) {
-        super.updated(changedProperties);
-        if (changedProperties.has("input")) {
-            this.performLogic();
-        }
-    }
-
-    performLogic() {
-        this.output = this.input ? 0 : 1;
-    }
-
-    @query("bit-cell")
-    inputCell!: BitCell;
-
-    handleBitUpdate(event: CustomEvent) {
-        const target = event.target as BitCell;
-        if (target !== this.inputCell) return;
-        this.input = target.value;
-        this.performLogic();
-    }
-
-    static styles = css /* css */`
-        :host {
-            height: 100%;
-            display: grid;
-            place-content: center;
-        }
-
-        .not-gate {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .wire {
-            display: block;
-            width: 5ch;
-            height: 2px;
-            background-color: black;
-        }
-
-        .symbol {
-            width: 20ch;
-            height: 20ch;
-        }
-    `;
-
-    render() {
-        return html /* html */`
-            <div class="not-gate">
-                <bit-cell .value=${this.input} interactive @bit-update=${this.handleBitUpdate}></bit-cell>
-                <div class="wire"></div>
-                <div class="symbol">
-                    ${this.renderSvg()}
-                </div>
-                <div class="wire"></div>
-                <bit-cell .value=${this.output} readonly></bit-cell>
-            </div>
-        `;
+    performLogic(): number {
+        return this.inputs.reduce((acc, curr) => acc & curr, 1) ^ 1;
     }
 
     renderSvg() {
