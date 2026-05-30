@@ -1,13 +1,75 @@
 <h2>Booleans</h2>
 
 <p>
-    In computing, we often need to represent and manipulate logical values, which can be either true or false.
-    These logical values are represented using the Boolean data type, which is named after the mathematician George
-    Boole. A Boolean value can be represented using a single bit, where <code>0</code> typically represents
+    In computing, we often need to represent and manipulate logical values, which can be either <code>true</code> or
+    <code>false</code>. A Boolean value can be represented using a single bit, where <code>0</code> typically represents
     <code>false</code> and <code>1</code> represents <code>true</code>.
 </p>
 
-<!-- TODO: Booleans -->
+<section id="boolean-values" class="topic">
+    <h3>Boolean Values</h3>
+
+    <p>
+        A Boolean is a value that can only be in one of two states. Depending on the context, we might describe those
+        two states as <code>true</code> and <code>false</code>, <code>yes</code> and <code>no</code>, or
+        <code>on</code> and <code>off</code>. The important part is not the label, but the fact that there are exactly
+        two possible outcomes.
+    </p>
+
+    <p>
+        This makes Booleans a natural way to represent conditions and decisions. Is a button pressed? Is a user signed
+        in? Did two values match? Questions like these do not need a large range of numbers. They only need a way to
+        say "yes" or "no".
+    </p>
+
+    <section class="showcase grid-center">
+        <div class="lhs-rhs user-select-none" style="gap: 2rem;">
+            <bit-cell value="1" class="cursor-pointer" data-sync-group="booleans-intro" boolean interactive></bit-cell>
+            <span class="font-code color-subdued">or</span>
+            <bit-cell value="0" class="cursor-pointer" data-sync-group="booleans-intro" data-sync-invert boolean
+                interactive></bit-cell>
+
+            <bit-cell value="1" class="cursor-pointer" data-sync-group="booleans-intro" boolean interactive
+                data-true="yes" data-false="no"></bit-cell>
+            <span class="font-code color-subdued">or</span>
+            <bit-cell value="0" class="cursor-pointer" data-sync-group="booleans-intro" data-sync-invert boolean
+                interactive data-true="yes" data-false="no"></bit-cell>
+
+            <svg-switch value="1" class="cursor-pointer" data-sync-group="booleans-intro" interactive></svg-switch>
+            <span class="font-code color-subdued">or</span>
+            <svg-switch value="0" class="cursor-pointer" data-sync-group="booleans-intro" data-sync-invert
+                interactive></svg-switch>
+
+            <bit-cell value="1" class="cursor-pointer" data-sync-group="booleans-intro" boolean interactive
+                data-true="1" data-false="0"></bit-cell>
+            <span class="font-code color-subdued">or</span>
+            <bit-cell value="0" class="cursor-pointer" data-sync-group="booleans-intro" data-sync-invert boolean
+                interactive data-true="1" data-false="0"></bit-cell>
+        </div>
+    </section>
+
+    <p>
+        In hardware and software, we often encode those two states using bits. By convention, <code>0</code> usually
+        means <code>false</code> and <code>1</code> usually means <code>true</code>. That convention is what lets the
+        same underlying binary representation stand in for switches, flags, comparisons, and logical expressions.
+    </p>
+</section>
+
+<section id="boolean-expressions" class="topic">
+    <h3>Boolean Expressions</h3>
+
+    <p>
+        A Boolean expression is any expression that evaluates to either <code>true</code> or <code>false</code>. A
+        single variable like <code>A</code> can be Boolean, but so can a compound expression like <code>A AND B</code>
+        or <code>NOT isEmpty</code>.
+    </p>
+
+    <p>
+        Boolean expressions are the language of decisions in computing. They control branches in code, determine which
+        gates activate in a circuit, and decide whether a particular condition has been satisfied.
+    </p>
+</section>
+
 <!-- TODO: Booleans:: Boolean Algebra -->
 <!-- TODO: Booleans:: Boolean Laws (DeMorgan's, distributive, absorption, involution etc) and simplification -->
 <!-- TODO: Booleans:: Truth-Tables -->
