@@ -112,5 +112,50 @@
     </section>
 </section>
 
+<section id="truth-tables" class="topic">
+    <h3>Truth Tables</h3>
+
+    <p>
+        A truth table lists every possible input combination for a Boolean expression and shows the output produced by
+        each one. It is one of the simplest ways to describe Boolean behavior precisely.
+    </p>
+
+    <p>
+        For one input, there are only two possible rows: the input can be <code>0</code> or <code>1</code>. For two
+        inputs, there are four possible rows: <code>00</code>, <code>01</code>, <code>10</code>, and <code>11</code>.
+        As the number of inputs grows, the number of rows doubles each time.
+    </p>
+
+    <section class="showcase">
+        <div class="truth-tables-grid">
+            <div>
+                <h4><code>NOT</code></h4>
+                <truth-table for="NOT"></truth-table>
+            </div>
+
+            <div>
+                <h4><code>AND</code></h4>
+                <truth-table for="AND"></truth-table>
+            </div>
+
+            <div>
+                <h4><code>OR</code></h4>
+                <truth-table for="OR"></truth-table>
+            </div>
+
+            <div>
+                <h4><code>XOR</code></h4>
+                <truth-table for="XOR"></truth-table>
+            </div>
+        </div>
+    </section>
+
+    <p>
+        Truth tables are especially useful because they let you compare expressions by behavior instead of by
+        appearance.
+        If two expressions produce the same output for every possible input, they are equivalent even if they look very
+        different on the page.
+    </p>
+</section>
+
 <!-- TODO: Booleans:: Boolean Laws (DeMorgan's, distributive, absorption, involution etc) and simplification -->
-<!-- TODO: Booleans:: Truth-Tables -->

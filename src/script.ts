@@ -11,6 +11,7 @@ import "./components/number-input.ts";
 import "./components/bit-rebase.ts";
 import "./components/char-set.ts";
 import "./components/gates/index.ts";
+import "./components/truth-table.ts";
 
 // Modules
 import "./modules/scroll.ts"
