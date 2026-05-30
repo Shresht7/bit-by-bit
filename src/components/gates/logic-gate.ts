@@ -10,7 +10,7 @@ export abstract class LogicGate extends LitElement {
     inputA = 0;
 
     @property({ type: Number, reflect: true })
-    inputB = 0;
+    inputB = -1;
 
     get output(): number {
         return this.performLogic();
@@ -71,12 +71,12 @@ export abstract class LogicGate extends LitElement {
                 
                 <div class="inputs" @bit-update=${this.handleBitUpdate}>
                     <bit-cell .value=${this.inputA} interactive></bit-cell>
-                    <bit-cell .value=${this.inputB} interactive></bit-cell>
+                    ${this.inputB >= 0 ? html`<bit-cell .value=${this.inputB} interactive></bit-cell>` : ""}
                 </div>
                 
                 <div class="inputs">
                     <div class="wire"></div>
-                    <div class="wire"></div>
+                    ${this.inputB >= 0 ? html`<div class="wire"></div>` : ""}
                 </div>
 
                 <div class="symbol">
