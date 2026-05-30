@@ -158,4 +158,94 @@
     </p>
 </section>
 
-<!-- TODO: Booleans:: Boolean Laws (DeMorgan's, distributive, absorption, involution etc) and simplification -->
+<section id="boolean-laws" class="topic">
+    <h3>Boolean Laws</h3>
+
+    <p>
+        Boolean algebra has a small set of laws that let us rewrite expressions without changing what they mean. These
+        laws are useful for simplifying conditions in code, reducing logic in circuits, and proving that two
+        expressions are equivalent.
+    </p>
+
+    <section id="boolean-laws-basic" class="topic">
+        <h4>Basic Laws</h4>
+        <ul>
+            <li><strong>Identity:</strong> <code>A AND 1 = A</code>, <code>A OR 0 = A</code></li>
+            <li><strong>Null / Domination:</strong> <code>A AND 0 = 0</code>, <code>A OR 1 = 1</code></li>
+            <li><strong>Idempotent:</strong> <code>A AND A = A</code>, <code>A OR A = A</code></li>
+            <li><strong>Complement:</strong> <code>A AND NOT A = 0</code>, <code>A OR NOT A = 1</code></li>
+            <li><strong>Involution:</strong> <code>NOT (NOT A) = A</code></li>
+        </ul>
+    </section>
+
+    <section id="boolean-laws-reordering" class="topic">
+        <h4>Reordering Laws</h4>
+        <ul>
+            <li><strong>Commutative:</strong> <code>A AND B = B AND A</code>, <code>A OR B = B OR A</code></li>
+            <li><strong>Associative:</strong> <code>(A AND B) AND C = A AND (B AND C)</code></li>
+            <li><strong>Associative:</strong> <code>(A OR B) OR C = A OR (B OR C)</code></li>
+        </ul>
+    </section>
+
+    <section id="boolean-laws-distribution-absorption" class="topic">
+        <h4>Distribution and Absorption</h4>
+        <ul>
+            <li><strong>Distributive:</strong> <code>A AND (B OR C) = (A AND B) OR (A AND C)</code></li>
+            <li><strong>Distributive:</strong> <code>A OR (B AND C) = (A OR B) AND (A OR C)</code></li>
+            <li><strong>Absorption:</strong> <code>A OR (A AND B) = A</code></li>
+            <li><strong>Absorption:</strong> <code>A AND (A OR B) = A</code></li>
+        </ul>
+    </section>
+
+    <section id="boolean-laws-demorgan" class="topic">
+        <h4>DeMorgan's Laws</h4>
+        <ul>
+            <li><code>NOT (A AND B) = (NOT A) OR (NOT B)</code></li>
+            <li><code>NOT (A OR B) = (NOT A) AND (NOT B)</code></li>
+        </ul>
+    </section>
+
+    <p>
+        Some of these laws are intuitive once you read them as statements about truth values, while others become much
+        easier to trust after checking them with a truth table. DeMorgan's laws, in particular, are worth memorizing
+        because they appear constantly when negating compound conditions.
+    </p>
+
+    <section id="boolean-simplification" class="topic">
+        <h4>Simplification Examples</h4>
+
+        <p>
+            The point of these laws is not just to memorize formulas. They let you transform a complicated expression
+            step by step into one that is smaller, clearer, or easier to implement.
+        </p>
+
+        <section>
+            <p><strong>Example 1:</strong> Simplify <code>A OR (A AND B)</code></p>
+            <p><code>A OR (A AND B) = A</code></p>
+            <p>
+                This is the absorption law. Once <code>A</code> is already true, the extra term <code>A AND B</code>
+                cannot make the expression any more true.
+            </p>
+        </section>
+
+        <section>
+            <p><strong>Example 2:</strong> Simplify <code>NOT (A OR B)</code></p>
+            <p><code>NOT (A OR B) = (NOT A) AND (NOT B)</code></p>
+            <p>
+                This is DeMorgan's law. Negating an <code>OR</code> expression changes the operator to
+                <code>AND</code> and negates each input.
+            </p>
+        </section>
+
+        <section>
+            <p><strong>Example 3:</strong> Simplify <code>(A AND 1) OR 0</code></p>
+            <p><code>(A AND 1) OR 0 = A OR 0 = A</code></p>
+            <p>
+                First use the identity law for <code>AND</code>, then the identity law for <code>OR</code>. The result
+                is just <code>A</code>.
+            </p>
+        </section>
+
+        <!-- TODO: Booleans:: Interactive simplification walkthroughs -->
+    </section>
+</section>
