@@ -19,6 +19,7 @@ export class NotGate extends LogicGate {
                     fill: none;
                     stroke: black;
                     stroke-width: 2;
+                    stroke-linejoin: round;
                 }
             
                 .label {

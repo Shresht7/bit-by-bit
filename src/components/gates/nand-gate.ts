@@ -19,6 +19,7 @@ export class NandGate extends LogicGate {
                         fill: none;
                         stroke: black;
                         stroke-width: 2px;
+                        stroke-linejoin: round;
                     }
                 
                     .label {

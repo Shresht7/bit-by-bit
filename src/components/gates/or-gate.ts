@@ -19,6 +19,7 @@ export class OrGate extends LogicGate {
                     fill: none;
                     stroke: black;
                     stroke-width: 2;
+                    stroke-linejoin: round;
                 }
             
                 .label {
@@ -39,7 +40,7 @@ export class OrGate extends LogicGate {
                 C32.217,56.835,19.906,56,16,56
                 C8,56,0,56,0,56
                 C0,56,15,48,15,32
-                C15,16,0,8,0,8" />
+                C15,16,0,8,0,8 Z" />
             
             <text class="label" x="32" y="32">OR</text>
         </svg>

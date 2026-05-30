@@ -19,6 +19,7 @@ export class AndGate extends LogicGate {
                         stroke: black;
                         stroke-width: 2; /* Path and viewbox calculations account for the stroke-width to be 2px  */
                         fill: none;
+                        stroke-linejoin: round;
                     }
                 
                     .label {
