@@ -7,7 +7,7 @@ import { LogicGate } from "./logic-gate";
 export class NotGate extends LogicGate {
 
     performLogic(): number {
-        return ~this.inputA;
+        return this.inputA === 0 ? 1 : 0;
     }
 
     renderSvg() {

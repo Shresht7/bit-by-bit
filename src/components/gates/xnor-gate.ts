@@ -7,7 +7,7 @@ import { LogicGate } from "./logic-gate";
 export class XnorGate extends LogicGate {
 
     performLogic(): number {
-        return ~(this.inputA ^ this.inputB);
+        return (this.inputA ^ this.inputB) ^ 1;
     }
 
     renderSvg() {
