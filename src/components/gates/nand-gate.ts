@@ -7,7 +7,7 @@ import { LogicGate } from "./logic-gate";
 export class NandGate extends LogicGate {
 
     performLogic() {
-        return this.inputs.reduce((acc, curr) => acc & curr, 1) ^ 1;
+        return ~(this.inputA & this.inputB);
     }
 
     renderSvg() {

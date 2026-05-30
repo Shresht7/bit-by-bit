@@ -7,7 +7,7 @@ import { LogicGate } from "./logic-gate";
 export class AndGate extends LogicGate {
 
     performLogic(): number {
-        return this.inputs.reduce((acc, curr) => acc & curr, 1);
+        return this.inputA && this.inputB;
     }
 
     renderSvg() {

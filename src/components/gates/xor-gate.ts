@@ -7,7 +7,7 @@ import { LogicGate } from "./logic-gate";
 export class XorGate extends LogicGate {
 
     performLogic(): number {
-        return this.inputs.reduce((acc, curr) => acc ^ curr, 0);
+        return this.inputA ^ this.inputB;
     }
 
     renderSvg() {
