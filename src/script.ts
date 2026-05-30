@@ -10,6 +10,7 @@ import "./components/bitwise-shift.ts";
 import "./components/number-input.ts";
 import "./components/bit-rebase.ts";
 import "./components/char-set.ts";
+import "./components/gates/index.ts";
 
 // Modules
 import "./modules/scroll.ts"
@@ -26,16 +27,26 @@ import "./modules/theme.ts";
 import type { BitCell } from "./components/bit-cell.ts";
 import type { ExpandedNumber } from "./components/expanded-number.ts";
 
-/** The collection of bit cells that are part of a sync group, allowing them to flip together when one is clicked. */
+/** The collection of bit cells that are part of a sync group, allowing them to sync together when one is clicked. */
 const syncBits = document.querySelectorAll<BitCell>("section.showcase bit-cell[data-sync-group], section.showcase svg-switch[data-sync-group]");
 
-// Add click event listeners to each sync bit to flip all bits in the same sync group when one is clicked.
+function toggleBitValue(value: number) {
+    return value === 0 ? 1 : 0;
+}
+
+// Add click event listeners to each sync bit to update all bits in the same sync group when one is clicked.
 syncBits.forEach(bit => bit?.addEventListener("click", () => {
     const targetSyncGroup = bit.getAttribute("data-sync-group");
     if (!targetSyncGroup) return;
+    const sourceValue = bit.hasAttribute("data-sync-invert")
+        ? toggleBitValue(bit.value)
+        : bit.value;
+
     syncBits.forEach(b => {
         if (b.getAttribute("data-sync-group") === targetSyncGroup) {
-            b.value = b.value === 0 ? 1 : 0;
+            b.value = b.hasAttribute("data-sync-invert")
+                ? toggleBitValue(sourceValue)
+                : sourceValue;
         }
     });
 }));
