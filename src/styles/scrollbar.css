@@ -29,7 +29,8 @@
 
     /* Style the scrollbar thumb (the draggable part) */
     &::-webkit-scrollbar-thumb {
-        background-color: var(--color-subdued);
+        background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
+        opacity: 0.1;
     }
 
     &::-webkit-scrollbar-track {
@@ -40,7 +41,7 @@
     /* Change scrollbar styles on hover */
     &:has(:hover) {
         &::-webkit-scrollbar-thumb {
-            background-color: var(--color-text);
+            background-color: color-mix(in srgb, var(--color-text) 40%, transparent);
         }
 
         &::-webkit-scrollbar-track {
