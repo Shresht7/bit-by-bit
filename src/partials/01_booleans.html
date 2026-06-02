@@ -1,13 +1,251 @@
 <h2>Booleans</h2>
 
 <p>
-    In computing, we often need to represent and manipulate logical values, which can be either true or false.
-    These logical values are represented using the Boolean data type, which is named after the mathematician George
-    Boole. A Boolean value can be represented using a single bit, where <code>0</code> typically represents
+    In computing, we often need to represent and manipulate logical values, which can be either <code>true</code> or
+    <code>false</code>. A Boolean value can be represented using a single bit, where <code>0</code> typically represents
     <code>false</code> and <code>1</code> represents <code>true</code>.
 </p>
 
-<!-- TODO: Booleans -->
-<!-- TODO: Booleans:: Boolean Algebra -->
-<!-- TODO: Booleans:: Boolean Laws (DeMorgan's, distributive, absorption, involution etc) and simplification -->
-<!-- TODO: Booleans:: Truth-Tables -->
+<section id="boolean-values" class="topic">
+    <h3>Boolean Values</h3>
+
+    <p>
+        A Boolean is a value that can only be in one of two states. Depending on the context, we might describe those
+        two states as <code>true</code> and <code>false</code>, <code>yes</code> and <code>no</code>, or
+        <code>on</code> and <code>off</code>. The important part is not the label, but the fact that there are exactly
+        two possible outcomes.
+    </p>
+
+    <p>
+        This makes Booleans a natural way to represent conditions and decisions. Is a button pressed? Is a user signed
+        in? Did two values match? Questions like these do not need a large range of numbers. They only need a way to
+        say "yes" or "no".
+    </p>
+
+    <section class="showcase grid-center">
+        <div class="lhs-rhs user-select-none" style="gap: 2rem;">
+            <bit-cell value="1" class="cursor-pointer" data-sync-group="booleans-intro" boolean interactive></bit-cell>
+            <span class="font-code color-subdued">or</span>
+            <bit-cell value="0" class="cursor-pointer" data-sync-group="booleans-intro" data-sync-invert boolean
+                interactive></bit-cell>
+
+            <bit-cell value="1" class="cursor-pointer" data-sync-group="booleans-intro" boolean interactive
+                data-true="yes" data-false="no"></bit-cell>
+            <span class="font-code color-subdued">or</span>
+            <bit-cell value="0" class="cursor-pointer" data-sync-group="booleans-intro" data-sync-invert boolean
+                interactive data-true="yes" data-false="no"></bit-cell>
+
+            <svg-switch value="1" class="cursor-pointer" data-sync-group="booleans-intro" interactive></svg-switch>
+            <span class="font-code color-subdued">or</span>
+            <svg-switch value="0" class="cursor-pointer" data-sync-group="booleans-intro" data-sync-invert
+                interactive></svg-switch>
+
+            <bit-cell value="1" class="cursor-pointer" data-sync-group="booleans-intro" boolean interactive
+                data-true="1" data-false="0"></bit-cell>
+            <span class="font-code color-subdued">or</span>
+            <bit-cell value="0" class="cursor-pointer" data-sync-group="booleans-intro" data-sync-invert boolean
+                interactive data-true="1" data-false="0"></bit-cell>
+        </div>
+    </section>
+
+    <p>
+        In hardware and software, we often encode those two states using bits. By convention, <code>0</code> usually
+        means <code>false</code> and <code>1</code> usually means <code>true</code>. That convention is what lets the
+        same underlying binary representation stand in for switches, flags, comparisons, and logical expressions.
+    </p>
+</section>
+
+<section id="boolean-expressions" class="topic">
+    <h3>Boolean Expressions</h3>
+
+    <p>
+        A Boolean expression is any expression that evaluates to either <code>true</code> or <code>false</code>. A
+        single variable like <code>A</code> can be Boolean, but so can a compound expression like <code>A AND B</code>
+        or <code>NOT isEmpty</code>.
+    </p>
+
+    <p>
+        Boolean expressions are the language of decisions in computing. They control branches in code, determine which
+        gates activate in a circuit, and decide whether a particular condition has been satisfied.
+    </p>
+</section>
+
+<section id="boolean-algebra" class="topic">
+    <h3>Boolean Algebra</h3>
+
+    <p>
+        Boolean algebra is a system for combining and transforming Boolean values. Instead of working with quantities
+        like ordinary arithmetic, it works with truth values and operators such as <code>NOT</code>, <code>AND</code>,
+        and <code>OR</code>.
+    </p>
+
+    <p>
+        These operators are used everywhere in computing. The same ideas appear in programming languages, search
+        filters, conditional statements, and digital circuits. Later, in the logic gates section, these operators will
+        reappear as physical gate behaviors.
+    </p>
+
+    <section id="boolean-operators" class="topic">
+        <h4>Core Operators</h4>
+
+        <p>
+            <code>NOT</code> flips a Boolean value. If <code>A</code> is true, then <code>NOT A</code> is false. If
+            <code>A</code> is false, then <code>NOT A</code> is true.
+        </p>
+
+        <p>
+            <code>AND</code> is true only when every input is true. An expression like <code>A AND B</code> succeeds
+            only when both conditions hold at the same time.
+        </p>
+
+        <p>
+            <code>OR</code> is true when at least one input is true. An expression like <code>A OR B</code> only
+            becomes false when both inputs are false.
+        </p>
+
+        <p>
+            <code>XOR</code>, or exclusive OR, is true when the inputs differ. For two inputs, it answers the question
+            "is exactly one of these true?"
+        </p>
+
+        <!-- TODO: Booleans:: Interactive examples for NOT, AND, OR, and XOR -->
+    </section>
+</section>
+
+<section id="truth-tables" class="topic">
+    <h3>Truth Tables</h3>
+
+    <p>
+        A truth table lists every possible input combination for a Boolean expression and shows the output produced by
+        each one. It is one of the simplest ways to describe Boolean behavior precisely.
+    </p>
+
+    <p>
+        For one input, there are only two possible rows: the input can be <code>0</code> or <code>1</code>. For two
+        inputs, there are four possible rows: <code>00</code>, <code>01</code>, <code>10</code>, and <code>11</code>.
+        As the number of inputs grows, the number of rows doubles each time.
+    </p>
+
+    <section class="showcase">
+        <div class="truth-tables-grid">
+            <div>
+                <h4><code>NOT</code></h4>
+                <truth-table for="NOT"></truth-table>
+            </div>
+
+            <div>
+                <h4><code>AND</code></h4>
+                <truth-table for="AND"></truth-table>
+            </div>
+
+            <div>
+                <h4><code>OR</code></h4>
+                <truth-table for="OR"></truth-table>
+            </div>
+
+            <div>
+                <h4><code>XOR</code></h4>
+                <truth-table for="XOR"></truth-table>
+            </div>
+        </div>
+    </section>
+
+    <p>
+        Truth tables are especially useful because they let you compare expressions by behavior instead of by
+        appearance.
+        If two expressions produce the same output for every possible input, they are equivalent even if they look very
+        different on the page.
+    </p>
+</section>
+
+<section id="boolean-laws" class="topic">
+    <h3>Boolean Laws</h3>
+
+    <p>
+        Boolean algebra has a small set of laws that let us rewrite expressions without changing what they mean. These
+        laws are useful for simplifying conditions in code, reducing logic in circuits, and proving that two
+        expressions are equivalent.
+    </p>
+
+    <section id="boolean-laws-basic" class="topic">
+        <h4>Basic Laws</h4>
+        <ul>
+            <li><strong>Identity:</strong> <code>A AND 1 = A</code>, <code>A OR 0 = A</code></li>
+            <li><strong>Null / Domination:</strong> <code>A AND 0 = 0</code>, <code>A OR 1 = 1</code></li>
+            <li><strong>Idempotent:</strong> <code>A AND A = A</code>, <code>A OR A = A</code></li>
+            <li><strong>Complement:</strong> <code>A AND NOT A = 0</code>, <code>A OR NOT A = 1</code></li>
+            <li><strong>Involution:</strong> <code>NOT (NOT A) = A</code></li>
+        </ul>
+    </section>
+
+    <section id="boolean-laws-reordering" class="topic">
+        <h4>Reordering Laws</h4>
+        <ul>
+            <li><strong>Commutative:</strong> <code>A AND B = B AND A</code>, <code>A OR B = B OR A</code></li>
+            <li><strong>Associative:</strong> <code>(A AND B) AND C = A AND (B AND C)</code></li>
+            <li><strong>Associative:</strong> <code>(A OR B) OR C = A OR (B OR C)</code></li>
+        </ul>
+    </section>
+
+    <section id="boolean-laws-distribution-absorption" class="topic">
+        <h4>Distribution and Absorption</h4>
+        <ul>
+            <li><strong>Distributive:</strong> <code>A AND (B OR C) = (A AND B) OR (A AND C)</code></li>
+            <li><strong>Distributive:</strong> <code>A OR (B AND C) = (A OR B) AND (A OR C)</code></li>
+            <li><strong>Absorption:</strong> <code>A OR (A AND B) = A</code></li>
+            <li><strong>Absorption:</strong> <code>A AND (A OR B) = A</code></li>
+        </ul>
+    </section>
+
+    <section id="boolean-laws-demorgan" class="topic">
+        <h4>DeMorgan's Laws</h4>
+        <ul>
+            <li><code>NOT (A AND B) = (NOT A) OR (NOT B)</code></li>
+            <li><code>NOT (A OR B) = (NOT A) AND (NOT B)</code></li>
+        </ul>
+    </section>
+
+    <p>
+        Some of these laws are intuitive once you read them as statements about truth values, while others become much
+        easier to trust after checking them with a truth table. DeMorgan's laws, in particular, are worth memorizing
+        because they appear constantly when negating compound conditions.
+    </p>
+
+    <section id="boolean-simplification" class="topic">
+        <h4>Simplification Examples</h4>
+
+        <p>
+            The point of these laws is not just to memorize formulas. They let you transform a complicated expression
+            step by step into one that is smaller, clearer, or easier to implement.
+        </p>
+
+        <section>
+            <p><strong>Example 1:</strong> Simplify <code>A OR (A AND B)</code></p>
+            <p><code>A OR (A AND B) = A</code></p>
+            <p>
+                This is the absorption law. Once <code>A</code> is already true, the extra term <code>A AND B</code>
+                cannot make the expression any more true.
+            </p>
+        </section>
+
+        <section>
+            <p><strong>Example 2:</strong> Simplify <code>NOT (A OR B)</code></p>
+            <p><code>NOT (A OR B) = (NOT A) AND (NOT B)</code></p>
+            <p>
+                This is DeMorgan's law. Negating an <code>OR</code> expression changes the operator to
+                <code>AND</code> and negates each input.
+            </p>
+        </section>
+
+        <section>
+            <p><strong>Example 3:</strong> Simplify <code>(A AND 1) OR 0</code></p>
+            <p><code>(A AND 1) OR 0 = A OR 0 = A</code></p>
+            <p>
+                First use the identity law for <code>AND</code>, then the identity law for <code>OR</code>. The result
+                is just <code>A</code>.
+            </p>
+        </section>
+
+        <!-- TODO: Booleans:: Interactive simplification walkthroughs -->
+    </section>
+</section>

@@ -129,6 +129,13 @@ section.showcase {
   width: 100%;
 }
 
+.truth-tables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
 .lhs-rhs {
   width: fit-content;
   display: grid;
