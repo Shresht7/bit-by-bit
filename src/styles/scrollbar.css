@@ -22,6 +22,9 @@
     /* Allow flex/grid children to shrink below content height */
     min-height: 0;
 
+    /* Prevent scroll chaining to parent containers */
+    overscroll-behavior-y: contain;
+
     /* Custom scrollbar styles for WebKit browsers */
     &::-webkit-scrollbar {
         width: 0.25rem;
