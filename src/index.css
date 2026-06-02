@@ -36,10 +36,32 @@ aside {
 }
 
 #sidebar {
-  height: calc(100dvh - var(--header-height));
+  height: 100%;
   margin-inline: auto;
   font-family: var(--font-family-code);
   padding-block: 1.25em 0.67em;
+
+  nav {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-subdued) transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-subdued);
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
 
   nav ul {
     display: flex;
