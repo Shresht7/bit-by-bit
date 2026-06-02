@@ -25,24 +25,3 @@
     display: grid;
     place-items: center;
 }
-
-.scrollable {
-    overflow-y: auto;
-    min-height: 0;
-
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-subdued) transparent;
-
-    &::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--color-subdued);
-        border-radius: 0px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-}

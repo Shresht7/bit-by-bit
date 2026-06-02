@@ -2,6 +2,7 @@
 @import url("./styles/colors.css");
 @import url("./styles/typography.css");
 @import url("./styles/utility.css");
+@import url("./styles/scrollbar.css");
 
 body {
   --header-height: 4rem;
@@ -13,24 +14,6 @@ body {
 ::selection {
   background-color: var(--color-text);
   color: var(--color-background);
-}
-
-:root {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-subdued) transparent;
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--color-subdued);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
 }
 
 header {
